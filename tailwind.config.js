@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./src/*.{html,js}", "./src/*/*.{html,js}", "./src/*/*/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "brand-green": "#50AD79"
+      },
+    },
+    fontFamily: {
+      "serif": ["Cambria", "Times New Roman", "serif"]
+    },
   },
   plugins: [],
 }
