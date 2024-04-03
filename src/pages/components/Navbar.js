@@ -7,6 +7,7 @@ function ArticlePreview(props) {
           <span className="h-full mx-5">|</span>
           <p>Hello</p>
         </div>
+        <ion-icon name="log-out-outline"></ion-icon>
       </div>
     </div>
   );
