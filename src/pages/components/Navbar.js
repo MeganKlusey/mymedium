@@ -1,7 +1,7 @@
 function ArticlePreview(props) {
   return (
     <div className="Navbar">
-      <div className="px-5 py-2.5">
+      <div className="h-[10vh] p-5">
         <div className="flex items-center">
           <h1 className='font-serif font-bold text-4xl'>myMedium</h1>
           <span className="h-full mx-5">|</span>
