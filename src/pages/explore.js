@@ -28,8 +28,12 @@ function Explore() {
                 <Creator name="Gabrielle Canon" profile="gabrielle-canon" />
                 <Creator name="Kari Paul" profile="kari-paul" />
               </div>
-              <h3 className="uppercase font-bold mt-20">Topics</h3>
-              <Topic />
+              <div className="flex flex-col gap-4">
+                <h3 className="uppercase font-bold mt-20">Topics</h3>
+                <Topic title="Social Media" topic="social-media" />
+                <Topic title="Coronavirus" topic="coronavirus" />
+                <Topic title="Robots" topic="robots" />
+              </div>
             </div>
           </div>
         </div>
