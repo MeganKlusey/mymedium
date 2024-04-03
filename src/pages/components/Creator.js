@@ -1,7 +1,7 @@
 function Creator(props) {
   return (
     <div className="Creator">
-      <div className="flex justify-between">
+      <div className="flex items-center justify-between">
         <div>
           <a className="block text-black" href={`/profile/${props.profile}`}>{props.name}</a>
           <a className="block text-brand-green" href={`/profile/${props.profile}`}>profile/{props.profile}</a>
