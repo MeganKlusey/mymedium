@@ -12,7 +12,11 @@ function ArticlePreview(props) {
           <span className="h-full mx-5">|</span>
           <p>Hello</p>
         </div>
-        <a className="text-2xl" href="/"><ion-icon name="log-out-outline"></ion-icon></a>
+        <div className='flex gap-x-4'>
+          <a className="text-2xl hover:opacity-60 duration-200" href="/"><ion-icon name="list-outline"></ion-icon></a>
+          <a className="text-2xl hover:opacity-60 duration-200" href="/"><ion-icon name="people-outline"></ion-icon></a>
+          <a className="text-2xl hover:opacity-60 duration-200" href="/"><ion-icon name="log-out-outline"></ion-icon></a>
+        </div>
       </div>
     </div>
   );
