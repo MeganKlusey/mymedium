@@ -14,7 +14,7 @@ function Explore() {
               <div className="w-1/2">
                 <ArticlePreview topStory />
               </div>
-              <div className="flex flex-col w-1/2 h-full justify-between gap-5">
+              <div className="grid grid-rows-4 w-1/2 h-full justify-between gap-5">
                 <ArticlePreview />
                 <ArticlePreview />
                 <ArticlePreview />
