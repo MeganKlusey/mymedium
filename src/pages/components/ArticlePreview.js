@@ -1,7 +1,7 @@
 function ArticlePreview(props) {
   return (
     <div className="ArticlePreview">
-      <div className={`flex ${props.topStory ? 'flex-col-reverse' : 'flex-row'}`}>
+      <div className={`flex ${props.topStory ? 'flex-col-reverse' : 'flex-row h-full'}`}>
         <div className={`article-text ${props.topStory ? 'w-full' : 'w-4/5'}`}>
           <p className="uppercase text-lg">Written by <span className="font-bold">Gabrielle Canon</span></p>
           <h2 className={`font-extrabold ${props.topStory ? 'text-4xl' : 'text-xl'}`}>Free 
@@ -14,7 +14,7 @@ function ArticlePreview(props) {
               consequat</p>
           }
         </div>
-        <div className={`bg-red-200 ${props.topStory ? 'w-full h-80 aspect-auto' : 'w-1/3 h-full aspect-square' }`}></div>
+        <div className={`bg-red-200 ${props.topStory ? 'w-full h-80 aspect-auto' : 'w-1/3 h-auto' }`}></div>
       </div>
     </div>
   );
