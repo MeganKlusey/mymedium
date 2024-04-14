@@ -20,10 +20,12 @@ function Index() {
 
   return (
     <div className='Index h-screen p-5'>
-      <div className='flex items-center justify-center gap-x-1 w-full'>
-        <img className='h-8' src={logo} alt='myMedium logo' />
-        <h1 className='font-serif font-bold text-4xl'>myMedium</h1>
-      </div>
+      <NavLink to="/">
+        <button className='flex items-center justify-center gap-x-1 w-full'>
+          <img className='h-8' src={logo} alt='myMedium logo' />
+          <h1 className='font-serif font-bold text-4xl'>myMedium</h1>
+        </button>
+      </NavLink>
       <div className='flex flex-col w-full items-center gap-8 absolute left-1/2 -translate-x-1/2 top-[57%] -translate-y-[57%]'>
         <div className='relative'>
           <p className='font-serif opacity-0 text-6xl md:text-8xl font-extrabold md:w-4/5 text-center' aria-hidden='true'>Dive deeper into topics that matter to you.</p>
