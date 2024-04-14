@@ -26,12 +26,22 @@ function Index() {
           <h1 className='font-serif font-bold text-4xl'>myMedium</h1>
         </button>
       </NavLink>
-      <div className='flex flex-col w-full items-center gap-8 absolute left-1/2 -translate-x-1/2 top-[57%] -translate-y-[57%]'>
+      <div className='flex flex-col w-full items-center gap-8 absolute left-1/2 
+      -translate-x-1/2 top-[57%] -translate-y-[57%]'>
         <div className='relative'>
-          <p className='font-serif opacity-0 text-6xl md:text-8xl font-extrabold md:w-4/5 text-center' aria-hidden='true'>Dive deeper into topics that matter to you.</p>
-          <p className='type-animation absolute top-0 left-1/2 -translate-x-1/2 font-serif text-6xl md:text-8xl font-extrabold md:w-4/5 text-center'></p>
+          <p className='font-serif opacity-0 text-6xl md:text-8xl font-extrabold md:w-4/5 
+          text-center' aria-hidden='true'>Dive deeper into topics that matter to you.</p>
+          <p className='type-animation absolute top-0 left-1/2 -translate-x-1/2 font-serif 
+          text-6xl md:text-8xl font-extrabold md:w-4/5 text-center'></p>
         </div>
-        <NavLink to='/explore'><button className='bg-brand-green text-white flex items-center justify-center text-xl rounded-md py-5 w-72 tracking-wider hover:opacity-80 duration-200'><p>Get started</p><img className='w-5' src={rightChevronIcon} alt="Right chevron icon" /></button></NavLink>
+        <NavLink to='/explore'>
+          <button className='bg-brand-green text-white flex 
+          items-center justify-center text-xl rounded-md py-5 w-72 tracking-wider 
+          hover:opacity-80 duration-200'>
+            <p>Get started</p>
+            <img className='w-5' src={rightChevronIcon} alt="Right chevron icon" />
+          </button>
+        </NavLink>
       </div>
     </div>
   );

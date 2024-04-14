@@ -13,10 +13,18 @@ function ArticlePreview(props) {
           <p className="hidden md:block">Hello</p>
         </div>
         <div className='flex gap-x-4'>
-        <a className="text-2xl hover:text-brand-green duration-200" href="/favourites"><ion-icon name="star-outline"></ion-icon></a>
-          <a className="text-2xl hover:text-brand-green duration-200" href="/profiles"><ion-icon name="list-outline"></ion-icon></a>
-          <a className="text-2xl hover:text-brand-green duration-200" href="/topics"><ion-icon name="people-outline"></ion-icon></a>
-          <a className="text-2xl hover:text-brand-green duration-200" href="/"><ion-icon name="log-out-outline"></ion-icon></a>
+          <a className="text-2xl hover:text-brand-green duration-200" href="/favourites">
+            <ion-icon name="star-outline"></ion-icon>
+          </a>
+          <a className="text-2xl hover:text-brand-green duration-200" href="/profiles">
+            <ion-icon name="list-outline"></ion-icon>
+          </a>
+          <a className="text-2xl hover:text-brand-green duration-200" href="/topics">
+            <ion-icon name="people-outline"></ion-icon>
+          </a>
+          <a className="text-2xl hover:text-brand-green duration-200" href="/">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </a>
         </div>
       </div>
     </div>
