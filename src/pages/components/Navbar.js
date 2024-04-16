@@ -15,7 +15,9 @@ function ArticlePreview(props) {
           <span className="hidden md:block h-full mx-5">|</span>
           <p className="hidden md:block">Hello</p>
         </div>
-        <button className='flex text-2xl hover:text-brand-green duration-200'><ion-icon name="menu-outline"></ion-icon></button>
+        <button className='flex sm:hidden text-2xl hover:text-brand-green duration-200'>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
         <div className='hidden sm:flex gap-x-4'>
           <NavLink to="/favourites">
             <div className="text-2xl hover:text-brand-green duration-200">
