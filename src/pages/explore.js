@@ -8,7 +8,7 @@ function Explore() {
     <div className="Explore lg:h-screen">
       <div className="lg:h-screen">
         <Navbar />
-        <div className="flex md:h-[90vh] lg:overflow-hidden">
+        <div className="flex h-auto lg:h-[90vh] lg:overflow-hidden">
           <div className="flex flex-col lg:flex-row p-5">
             <div className="flex flex-col md:flex-row w-full lg:w-3/4 gap-5">
               <div className="w-full md:w-1/2">
@@ -21,8 +21,8 @@ function Explore() {
                 <ArticlePreview />
               </div>
             </div>
-            <hr className="bg-black h-full w-px mx-5" />
-            <div className="w-full md:w-1/4">
+            <hr className="bg-black h-full w-full lg:w-px my-5 lg:my-0 lg:mx-5" />
+            <div className="w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base">Creators</h4>
                 <Creator name="Gabrielle Canon" profile="gabrielle-canon" />
