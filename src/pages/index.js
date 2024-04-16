@@ -27,7 +27,7 @@ function Index() {
         </button>
       </NavLink>
       <div className='flex flex-col w-full items-center gap-8 absolute left-1/2 
-      -translate-x-1/2 top-[67%] -translate-y-[67%] sm:top-[57%]
+      -translate-x-1/2 top-[62%] -translate-y-[62%] sm:top-[57%]
       sm:-translate-y-[57%] px-2.5 xs:px-5'>
         <div className='relative'>
           <p className='font-serif opacity-0 text-6xl md:text-8xl font-extrabold md:w-4/5 
