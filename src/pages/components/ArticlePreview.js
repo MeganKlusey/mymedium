@@ -1,12 +1,12 @@
 function ArticlePreview(props) {
   return (
     <div className="ArticlePreview">
-      <div className={`flex ${props.topStory ? 'flex-col-reverse' : 'flex-row h-full'}`}>
+      <div className={`flex ${props.topStory ? 'flex-col-reverse' : 'flex-row-reverse md:flex-row h-full'}`}>
         <div className={`article-text ${props.topStory ? 'w-full' : 'w-4/5'}`}>
-          <p className="uppercase text-md line-clamp-1">Written by&nbsp; 
+          <p className="uppercase text-md sm:line-clamp-1">Written by&nbsp; 
             <span className="font-bold">Gabrielle Canon</span>
           </p>
-          <h2 className={`font-extrabold line-clamp-2 
+          <h2 className={`font-extrabold sm:line-clamp-2 
           ${props.topStory ? 'text-4xl' : 'text-xl'}`}>Free internet for all not such a 
           bad iea | Brief letters</h2>
           <p className="font-light">2023-12-11 <span className="font-bold">&#8901;</span> 
