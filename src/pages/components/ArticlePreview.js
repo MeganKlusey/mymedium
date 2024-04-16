@@ -4,7 +4,7 @@ function ArticlePreview(props) {
       <div className={`flex gap-2 ${props.topStory ? 'flex-col-reverse' : 'flex-row-reverse md:flex-row h-full border-b pb-4 md:border-0'}`}>
         <div className={`article-text flex flex-col ${props.topStory ? 'w-full' : 'w-4/5 justify-between'}`}>
           <div>
-            <p className="uppercase text-md sm:line-clamp-1">Written by&nbsp; 
+            <p className={`uppercase text-md sm:line-clamp-1 ${props.topStory ? '' : 'hidden xs:block'}`}>Written by&nbsp; 
               <span className="font-bold">Gabrielle Canon</span>
             </p>
             <h2 className={`font-extrabold sm:line-clamp-2 

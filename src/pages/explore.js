@@ -9,7 +9,7 @@ function Explore() {
       <div className="lg:h-screen">
         <Navbar />
         <div className="flex h-auto lg:h-[90vh] lg:overflow-hidden">
-          <div className="flex flex-col lg:flex-row p-2.5 md:p-5">
+          <div className="flex flex-col lg:flex-row p-2.5 xs:p-5">
             <div className="flex flex-col md:flex-row w-full lg:w-3/4 gap-8 md:gap-5">
               <div className="w-full md:w-1/2">
                 <ArticlePreview topStory />
