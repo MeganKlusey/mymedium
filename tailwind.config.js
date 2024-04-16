@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         "brand-green": "#50AD79"
       },
+      screens: {
+        "xs": "426px"
+      }
     },
     fontFamily: {
       "serif": ["Cambria", "Times New Roman", "serif"]
