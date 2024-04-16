@@ -21,15 +21,15 @@ function Explore() {
                 <ArticlePreview />
               </div>
             </div>
-            <hr className="bg-black h-full w-full lg:w-px my-5 lg:my-0 lg:mx-5" />
+            <hr className="hidden md:block bg-black h-full w-full lg:w-px my-8 lg:my-0 lg:mx-5" />
             <div className="w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
-                <h4 className="uppercase font-bold text-base">Creators</h4>
+                <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
                 <Creator name="Gabrielle Canon" profile="gabrielle-canon" />
                 <Creator name="Kari Paul" profile="kari-paul" />
               </div>
               <div className="flex flex-col gap-4">
-                <h4 className="uppercase font-bold mt-20 text-base">Topics</h4>
+                <h4 className="uppercase font-bold mt-16 lg:mt-20 text-base">Topics</h4>
                 <Topic title="Social Media" topic="social-media" />
                 <Topic title="Coronavirus" topic="coronavirus" />
                 <Topic title="Robots" topic="robots" />
