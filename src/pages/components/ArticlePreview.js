@@ -3,7 +3,7 @@ function ArticlePreview(props) {
     <div className="ArticlePreview">
       <div className={`flex ${props.topStory ? 'flex-col-reverse' : 'flex-row h-full'}`}>
         <div className={`article-text ${props.topStory ? 'w-full' : 'w-4/5'}`}>
-          <p className="uppercase text-lg line-clamp-1">Written by&nbsp; 
+          <p className="uppercase text-md line-clamp-1">Written by&nbsp; 
             <span className="font-bold">Gabrielle Canon</span>
           </p>
           <h2 className={`font-extrabold line-clamp-2 
