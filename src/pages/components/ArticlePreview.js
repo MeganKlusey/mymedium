@@ -21,7 +21,7 @@ function ArticlePreview(props) {
           }
         </div>
         <div className={`bg-red-200 
-        ${props.topStory ? 'w-full h-80 aspect-auto' : 'aspect-square lg:aspect-none w-1/3 h-auto' }`}></div>
+        ${props.topStory ? 'w-full h-60 xs:h-80 aspect-auto' : 'aspect-square lg:aspect-none w-1/3 h-auto' }`}></div>
       </div>
     </div>
   );
