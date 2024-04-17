@@ -11,7 +11,7 @@ function ArticlePreview(props) {
   });
 
   return (
-    <div className="Navbar relative">
+    <div className="Navbar">
         <div className="bg-white flex items-center justify-between w-full
         h-[10vh] p-2.5 xs:p-5 fixed lg:relative top-0 z-20">
           <div className="flex items-center">
