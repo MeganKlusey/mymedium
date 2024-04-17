@@ -5,9 +5,18 @@ import $ from 'jquery';
 function ArticlePreview(props) {
   $(document).ready(function() {
     $('.mobile-menu-button').on("click", function() {
-      $('.mobile-menu').toggleClass('hidden');
-      $('body').toggleClass('overflow-hidden');
-    })
+      $('.mobile-menu').removeClass('hidden');
+      $('.mobile-menu-button').addClass('hidden');
+      $('.mobile-menu-close-button').removeClass('hidden');
+      $('body').addClass('overflow-hidden');
+    });
+
+    $('.mobile-menu-close-button').on("click", function() {
+      $('.mobile-menu').addClass('hidden');
+      $('.mobile-menu-close-button').addClass('hidden');
+      $('.mobile-menu-button').removeClass('hidden');
+      $('body').removeClass('overflow-hidden');
+    });
   });
 
   return (
@@ -26,6 +35,9 @@ function ArticlePreview(props) {
           </div>
           <button className='mobile-menu-button flex sm:hidden text-2xl hover:text-brand-green duration-200'>
             <ion-icon name="menu-outline"></ion-icon>
+          </button>
+          <button className='mobile-menu-close-button flex sm:hidden text-2xl hover:text-brand-green duration-200 hidden'>
+            <ion-icon name="close-outline"></ion-icon>
           </button>
           <div className='hidden sm:flex gap-x-4'>
             <NavLink to="/favourites">
