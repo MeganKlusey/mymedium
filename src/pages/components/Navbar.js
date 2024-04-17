@@ -1,7 +1,14 @@
 import {NavLink} from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
+import $ from 'jquery';
 
 function ArticlePreview(props) {
+  $(document).ready(function() {
+    $('.mobile-menu-button').on("click", function() {
+      $('.mobile-menu').toggleClass('hidden');
+    })
+  });
+
   return (
     <div className="Navbar">
       <div className="flex items-center justify-between h-[10vh] p-2.5 xs:p-5">
@@ -15,7 +22,7 @@ function ArticlePreview(props) {
           <span className="hidden md:block h-full mx-5">|</span>
           <p className="hidden md:block">Hello</p>
         </div>
-        <button className='flex sm:hidden text-2xl hover:text-brand-green duration-200'>
+        <button className='mobile-menu-button flex sm:hidden text-2xl hover:text-brand-green duration-200'>
           <ion-icon name="menu-outline"></ion-icon>
         </button>
         <div className='hidden sm:flex gap-x-4'>
@@ -40,6 +47,9 @@ function ArticlePreview(props) {
             </div>
           </NavLink>
         </div>
+      </div>
+      <div className='mobile-menu h-[90vh] hidden'>
+        <hr className="w-full my-5" />
       </div>
     </div>
   );
