@@ -51,7 +51,7 @@ function ArticlePreview(props) {
           </div>
         </div>
         <div className='mobile-menu bg-white w-full h-[90vh] fixed z-10 top-[10vh] hidden'>
-          <hr className="w-full my-5" />
+          <hr className="w-full my-2.5 xs:my-5" />
         </div>
     </div>
   );
