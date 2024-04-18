@@ -66,16 +66,16 @@ function ArticlePreview(props) {
           <hr className="w-full my-2.5 xs:my-5" />
           <div className='px-2.5 px-5'>
             <NavLink to="/favourites">
-              <p className='pb-4 border-b'>Favourites</p>
+              <p className='pb-4 border-b hover:text-brand-green'>Favourites</p>
             </NavLink>
             <NavLink to="/topics">
-              <p className='py-4 border-b'>Topics</p>
+              <p className='py-4 border-b hover:text-brand-green'>Topics</p>
             </NavLink>
             <NavLink to="/profiles">
-              <p className='py-4 border-b'>Creators</p>
+              <p className='py-4 border-b hover:text-brand-green'>Creators</p>
             </NavLink>
             <NavLink to="/">
-              <p className='py-4 border-b text-right'>Logout</p>
+              <p className='py-4 border-b hover:text-brand-green text-right'>Logout</p>
             </NavLink>
           </div>
         </div>
