@@ -55,14 +55,14 @@ function ArticlePreview(props) {
                 <ion-icon name="star-outline"></ion-icon>
               </div>
             </NavLink>
-            <NavLink to="/profiles">
+            <NavLink to="/creators">
               <div className="text-2xl hover:text-brand-green duration-200">
-                <ion-icon name="list-outline"></ion-icon>
+                <ion-icon name="people-outline"></ion-icon>
               </div>
             </NavLink>
             <NavLink to="/topics">
               <div className="text-2xl hover:text-brand-green duration-200">
-                <ion-icon name="people-outline"></ion-icon>
+                <ion-icon name="list-outline"></ion-icon>
               </div>
             </NavLink>
             <NavLink to="/">
@@ -78,11 +78,11 @@ function ArticlePreview(props) {
             <NavLink to="/favourites">
               <p className='pb-4 border-b hover:text-brand-green'>Favourites</p>
             </NavLink>
+            <NavLink to="/creators">
+              <p className='py-4 border-b hover:text-brand-green'>Creators</p>
+            </NavLink>
             <NavLink to="/topics">
               <p className='py-4 border-b hover:text-brand-green'>Topics</p>
-            </NavLink>
-            <NavLink to="/profiles">
-              <p className='py-4 border-b hover:text-brand-green'>Creators</p>
             </NavLink>
             <NavLink to="/">
               <p className='py-4 border-b hover:text-brand-green text-right'>Logout</p>

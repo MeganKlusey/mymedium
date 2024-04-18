@@ -25,8 +25,8 @@ function Explore() {
             <div className="w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
-                <Creator name="Gabrielle Canon" profile="gabrielle-canon" />
-                <Creator name="Kari Paul" profile="kari-paul" />
+                <Creator name="Gabrielle Canon" creator="gabrielle-canon" />
+                <Creator name="Kari Paul" creator="kari-paul" />
               </div>
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold mt-16 lg:mt-20 text-base">Topics</h4>
