@@ -17,6 +17,16 @@ function ArticlePreview(props) {
       $('.mobile-menu-button').removeClass('hidden');
       $('body').removeClass('overflow-hidden');
     });
+
+    let date = new Date($.now());
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    if (hours <= 11 && minutes <= 59) {
+      $('.greeting').text('Good morning');
+    } else {
+      $('.greeting').text('Good afternoon');
+    }
   });
 
   return (
@@ -31,7 +41,7 @@ function ArticlePreview(props) {
               </div>
             </NavLink>
             <span className="hidden md:block h-full mx-5">|</span>
-            <p className="hidden md:block">Hello</p>
+            <p className="hidden md:block greeting"></p>
           </div>
           <button className='mobile-menu-button flex sm:hidden text-2xl hover:text-brand-green duration-200'>
             <ion-icon name="menu-outline"></ion-icon>
