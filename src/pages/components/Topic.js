@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 function Topic(props) {
   return (
     <div className="Topic">
-      <div className="flex items-center justify-between border-b pb-4">
+      <div className="flex items-center justify-between border-b pb-4 gap-2">
         <NavLink to={`/topics/${props.topic}`}>
           <h5 className='text-base'>{props.title}</h5>
         </NavLink>

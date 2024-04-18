@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 function Creator(props) {
   return (
     <div className="Creator">
-      <div className="flex items-center justify-between border-b pb-4">
+      <div className="flex items-center justify-between border-b pb-4 gap-2">
         <NavLink to={`/creators/${props.creator}`}>
           <h5 className='text-base'>{props.name}</h5>
         </NavLink>
