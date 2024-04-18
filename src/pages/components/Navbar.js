@@ -18,6 +18,10 @@ function ArticlePreview(props) {
       $('body').removeClass('overflow-hidden');
     });
 
+    $('.mobile-menu-item').on("click", function() {
+      $('body').removeClass('overflow-hidden')
+    });
+
     let date = new Date($.now());
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -76,16 +80,16 @@ function ArticlePreview(props) {
           <hr className="w-full my-2.5 xs:my-5" />
           <div className='px-2.5 px-5'>
             <NavLink to="/favourites">
-              <p className='pb-4 border-b hover:text-brand-green'>Favourites</p>
+              <p className='mobile-menu-item pb-4 border-b hover:text-brand-green'>Favourites</p>
             </NavLink>
             <NavLink to="/creators">
-              <p className='py-4 border-b hover:text-brand-green'>Creators</p>
+              <p className='mobile-menu-item py-4 border-b hover:text-brand-green'>Creators</p>
             </NavLink>
             <NavLink to="/topics">
-              <p className='py-4 border-b hover:text-brand-green'>Topics</p>
+              <p className='mobile-menu-item py-4 border-b hover:text-brand-green'>Topics</p>
             </NavLink>
             <NavLink to="/">
-              <p className='py-4 border-b hover:text-brand-green text-right'>Logout</p>
+              <p className='mobile-menu-item py-4 border-b hover:text-brand-green text-right'>Logout</p>
             </NavLink>
           </div>
         </div>
