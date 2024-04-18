@@ -64,6 +64,20 @@ function ArticlePreview(props) {
         </div>
         <div className='mobile-menu bg-white w-full h-[90vh] fixed z-10 top-[10vh] hidden'>
           <hr className="w-full my-2.5 xs:my-5" />
+          <div className='px-2.5 px-5'>
+            <NavLink to="/favourites">
+              <p className='pb-4 border-b'>Favourites</p>
+            </NavLink>
+            <NavLink to="/topics">
+              <p className='py-4 border-b'>Topics</p>
+            </NavLink>
+            <NavLink to="/profiles">
+              <p className='py-4 border-b'>Creators</p>
+            </NavLink>
+            <NavLink to="/">
+              <p className='py-4 border-b text-right'>Logout</p>
+            </NavLink>
+          </div>
         </div>
     </div>
   );
