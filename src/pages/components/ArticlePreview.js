@@ -1,7 +1,7 @@
 function ArticlePreview(props) {
   return (
     <div className="ArticlePreview">
-      <div className={`flex gap-2 ${props.topStory ? 'flex-col-reverse' : 'flex-row-reverse md:flex-row h-full border-b pb-4 md:pb-0 md:border-0'}`}>
+      <div className={`flex gap-2 ${props.topStory ? 'flex-col-reverse justify-end h-auto md:h-screen' : 'flex-row-reverse md:flex-row h-full border-b pb-4 md:pb-0 md:border-0'}`}>
         <div className={`article-text flex flex-col ${props.topStory ? 'w-full' : 'w-4/5 justify-between'}`}>
           <div>
             <p className={`uppercase text-md sm:line-clamp-1 ${props.topStory ? '' : 'hidden xs:block'}`}>Written by&nbsp; 
@@ -21,7 +21,7 @@ function ArticlePreview(props) {
           }
         </div>
         <div className={`bg-red-200 
-        ${props.topStory ? 'w-full h-60 xs:h-80 aspect-auto' : 'aspect-square lg:aspect-none w-1/3 h-auto' }`}></div>
+        ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[40vh] aspect-auto' : 'aspect-square lg:aspect-none w-1/3 h-auto' }`}></div>
       </div>
     </div>
   );
