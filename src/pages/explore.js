@@ -1,9 +1,21 @@
+import { useEffect, useState } from "react";
 import ArticlePreview from "./components/ArticlePreview";
 import Navbar from "./components/Navbar";
 import Creator from "./components/Creator";
 import Topic from "./components/Topic";
 
 function Explore() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://content.guardianapis.com/technology?api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918")
+    .then(res => res.json())
+    .then(data => {
+      setData(data.response.results);
+    })
+    .catch(err => console.log(err));
+  }, []);
+
   return (
     <div className="Explore lg:h-screen">
       <div className="lg:h-screen">
@@ -12,7 +24,9 @@ function Explore() {
           <div className="flex flex-col lg:flex-row p-2.5 xs:p-5 w-full">
             <div className="flex flex-col md:flex-row w-full lg:w-3/4 gap-8 md:gap-5">
               <div className="w-full md:w-1/2">
-                <ArticlePreview topStory />
+                {data && data.slice(0,1).map((data) => (
+                  <ArticlePreview topStory title={data.webTitle} />
+                ))}
               </div>
               <div className="grid grid-rows-4 w-full md:w-1/2 h-full justify-stretch gap-5 border-t md:border-0 pt-4 md:pt-0">
                 <ArticlePreview />
