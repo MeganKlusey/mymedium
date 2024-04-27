@@ -23,9 +23,9 @@ function ArticlePreview(props) {
             nisi ut aliquip ex ea commodo consequat</p>
           }
         </div>
-        <div className={`bg-red-200 
+        <img className={` 
         ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
-        'aspect-square lg:aspect-none w-1/3 h-auto' }`}></div>
+        'aspect-square lg:aspect-none w-1/3 h-auto' }`} src={props.thumbnail} alt="" />
       </div>
     </div>
   );
