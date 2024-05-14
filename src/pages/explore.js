@@ -29,10 +29,11 @@ function Explore() {
                 ))}
               </div>
               <div className="grid grid-rows-4 w-full md:w-1/2 h-full justify-stretch gap-5 border-t md:border-0 pt-4 md:pt-0">
-                <ArticlePreview />
-                <ArticlePreview />
-                <ArticlePreview />
-                <ArticlePreview />
+                {data && data.slice(1,5).map((data) => (
+                  <>
+                    <ArticlePreview title={data.webTitle} thumbnail={data.fields.thumbnail} />
+                  </>
+                ))}
               </div>
             </div>
             <hr className="hidden md:block bg-black h-full w-full lg:w-px my-8 lg:my-0 lg:mx-5" />
