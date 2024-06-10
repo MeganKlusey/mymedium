@@ -8,22 +8,19 @@ function ArticlePreview(props) {
         ${props.topStory ? 'w-full' : 'w-4/5 justify-between'}`}>
           <div>
             <p className={`uppercase text-md sm:line-clamp-1 
-            ${props.topStory ? '' : 'hidden xs:block'}`}>Written by&nbsp; 
-              <span className="font-bold">Gabrielle Canon</span>
+            ${props.topStory ? '' : 'hidden xs:block'}`}>{props.firstName && 'Written by'}&nbsp; 
+              <span className="font-bold">{props.firstName} {props.lastName}</span>
             </p>
             <h2 className={`font-extrabold sm:line-clamp-2 
             ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
           </div>
-          <p className="font-light">2023-12-11 <span className="font-bold">&#8901;</span> 
-          16:19:44 <span className="text-xl align-baseline">&#8902;</span></p>
+          <p className="font-light"> 
+          {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")} <span className="text-xl align-baseline">&#8902;</span></p>
           {props.topStory &&
-            <p className="line-clamp-4">Lorem ipsum dolor sit amet, consectetur 
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat</p>
+            <p className="line-clamp-4">{props.body.replace(/<\/?p[^>]*>/g, "")}</p>
           }
         </div>
-        <img className={` 
+        <img className={`object-cover  
         ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
         'aspect-square lg:aspect-none w-1/3 h-auto' }`} src={props.thumbnail} alt="" />
       </div>
