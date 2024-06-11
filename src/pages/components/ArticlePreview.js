@@ -17,7 +17,7 @@ function ArticlePreview(props) {
           <p className="font-light"> 
           {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")} <span className="text-xl align-baseline">&#8902;</span></p>
           {props.topStory &&
-            <p className="line-clamp-4">{props.body.replace(/<\/?p[^>]*>/g, "")}</p>
+            <p className="line-clamp-4">{props.body.replace(/<\/?[^>]*>/g, "")}</p>
           }
         </div>
         <img className={`object-cover  
