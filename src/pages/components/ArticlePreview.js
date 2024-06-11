@@ -7,10 +7,12 @@ function ArticlePreview(props) {
         <div className={`article-text flex flex-col 
         ${props.topStory ? 'w-full' : 'w-4/5 justify-between'}`}>
           <div>
+          {props.firstName && 
             <p className={`uppercase text-md sm:line-clamp-1 
-            ${props.topStory ? '' : 'hidden xs:block'}`}>{props.firstName && 'Written by'}&nbsp; 
+              ${props.topStory ? '' : 'hidden xs:block'}`}>Written by&nbsp; 
               <span className="font-bold">{props.firstName} {props.lastName}</span>
             </p>
+          }
             <h2 className={`font-extrabold sm:line-clamp-2 
             ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
           </div>
