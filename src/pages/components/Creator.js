@@ -4,7 +4,7 @@ function Creator(props) {
   return (
     <div className="Creator">
       <div className="flex items-center justify-between border-b pb-4 gap-2">
-        <NavLink to={`/creators/${props.id}`}>
+        <NavLink to={`/creators/${props.id.replace(/profile\//g, "")}`}>
           <h5 className='text-base'>{props.firstName}&nbsp;{props.lastName}</h5>
         </NavLink>
         <button className="text-brand-green border border-brand-green py-2 px-6 
