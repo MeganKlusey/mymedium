@@ -6,20 +6,25 @@ import Topic from "./components/Topic";
 
 function Explore() {
   const [data, setData] = useState([]);
+  const [creators, setCreators] = useState([]);
 
   useEffect(() => {
     fetch("https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918")
     .then(res => res.json())
     .then(data => {
       setData(data.response.results);
+      setCreators(data.response.results.tags.firstName);
     })
     .catch(err => console.log(err));
   }, []);
+
+  let random = Math.floor(Math.random() * (data.length-1));
 
   return (
     <div className="Explore lg:h-screen">
       <div className="lg:h-screen">
         <Navbar />
+        {creators}
         <div className="flex h-auto lg:h-[90vh] lg:overflow-hidden relative mt-[10vh] lg:mt-0 relative">
           <div className="flex flex-col lg:flex-row p-2.5 xs:p-5 w-full">
             <div className="flex flex-col md:flex-row w-full lg:w-3/4 gap-8 md:gap-5">
@@ -38,8 +43,9 @@ function Explore() {
             <div className="flex flex-col w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
-                <Creator name="Gabrielle Canon" creator="gabrielle-canon" />
-                <Creator name="Kari Paul" creator="kari-paul" />
+                {data && data.slice(random, random+2).filter(item => item?.tags[0]?.firstName).map((data) => (
+                  <Creator firstName={data?.tags[0]?.firstName} lastName={data?.tags[0]?.lastName} id={data?.tags[0]?.id} />
+                ))}
               </div>
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold mt-16 text-base">Topics</h4>
