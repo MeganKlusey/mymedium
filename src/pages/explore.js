@@ -6,7 +6,6 @@ import Topic from "./components/Topic";
 
 function Explore() {
   const [data, setData] = useState([]);
-  const [creators, setCreators] = useState([]);
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ function Explore() {
     .then(res => res.json())
     .then(data => {
       setData(data.response.results);
-      setCreators(data.response.results.tags.firstName);
     })
     .catch(err => console.log(err));
   }, []);
@@ -28,20 +26,19 @@ function Explore() {
     .catch(err => console.log(err));
   }, []);
 
-  let filteredCreators = filterCreators(data);
+  let creators = filterCreators(data);
 
   function filterCreators(array) {
     let filteredCreators = array.filter(item => item?.tags[0]?.firstName);
     return filteredCreators;
   }
 
-  let random = Math.floor(Math.random() * (filteredCreators.length-1));
+  let randomIndex = Math.floor(Math.random() * (creators.length-1));
 
   return (
     <div className="Explore lg:h-screen">
       <div className="lg:h-screen">
         <Navbar />
-        {creators}
         <div className="flex h-auto lg:h-[90vh] lg:overflow-hidden relative mt-[10vh] lg:mt-0 relative">
           <div className="flex flex-col lg:flex-row p-2.5 xs:p-5 w-full">
             <div className="flex flex-col md:flex-row w-full lg:w-3/4 gap-8 md:gap-5">
@@ -60,15 +57,15 @@ function Explore() {
             <div className="flex flex-col w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
-                {filteredCreators && filteredCreators.filter(item => item?.tags[0]?.firstName).slice(random, (random+2)).map((filteredCreators) => (
-                  <Creator firstName={filteredCreators?.tags[0]?.firstName} lastName={filteredCreators?.tags[0]?.lastName} id={filteredCreators?.tags[0]?.id} />
+                {creators && creators.filter(item => item?.tags[0]?.firstName).slice(randomIndex, (randomIndex+2)).map((creators) => (
+                  <Creator firstName={creators?.tags[0]?.firstName} lastName={creators?.tags[0]?.lastName} id={creators?.tags[0]?.id} />
                 ))}
               </div>
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold mt-16 text-base">Topics</h4>
-                <Topic title="Social Media" topic="social-media" />
-                <Topic title="Coronavirus" topic="coronavirus" />
-                <Topic title="Robots" topic="robots" />
+                {data.slice(randomIndex, (randomIndex+2)).map((data) => {
+                  <Topic title="Social Media" id="social-media" />
+                })}
               </div>
             </div>
           </div>
