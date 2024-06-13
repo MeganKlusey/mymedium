@@ -33,7 +33,9 @@ function Explore() {
     return filteredCreators;
   }
 
-  let randomIndex = Math.floor(Math.random() * (creators.length-1));
+  let randomCreatorIndex = Math.floor(Math.random() * (creators.length-1));
+
+  let randomTopicIndex = Math.floor(Math.random() * (topics.length-2));
 
   return (
     <div className="Explore lg:h-screen">
@@ -57,15 +59,15 @@ function Explore() {
             <div className="flex flex-col w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
-                {creators && creators.filter(item => item?.tags[0]?.firstName).slice(randomIndex, (randomIndex+2)).map((creators) => (
-                  <Creator firstName={creators?.tags[0]?.firstName} lastName={creators?.tags[0]?.lastName} id={creators?.tags[0]?.id} />
+                {creators && creators.filter(item => item?.tags[0]?.firstName).slice(randomCreatorIndex, (randomCreatorIndex+2)).map((creator) => (
+                  <Creator firstName={creator?.tags[0]?.firstName} lastName={creator?.tags[0]?.lastName} id={creator?.tags[0]?.id} />
                 ))}
               </div>
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold mt-16 text-base">Topics</h4>
-                {data.slice(randomIndex, (randomIndex+2)).map((data) => {
-                  <Topic title="Social Media" id="social-media" />
-                })}
+                {topics && topics.slice(randomTopicIndex, (randomTopicIndex+3)).map((topic) => (
+                  <Topic title={topic?.webTitle} id={topic?.id} />
+                ))}
               </div>
             </div>
           </div>
