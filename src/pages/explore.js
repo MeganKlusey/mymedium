@@ -18,7 +18,14 @@ function Explore() {
     .catch(err => console.log(err));
   }, []);
 
-  let random = Math.floor(Math.random() * (data.length-1));
+  let filteredCreators = filterCreators(data);
+
+  function filterCreators(array) {
+    let filteredCreators = array.filter(item => item?.tags[0]?.firstName);
+    return filteredCreators;
+  }
+
+  let random = Math.floor(Math.random() * (filteredCreators.length-1));
 
   return (
     <div className="Explore lg:h-screen">
@@ -43,8 +50,8 @@ function Explore() {
             <div className="flex flex-col w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
-                {data && data.slice(random, random+2).filter(item => item?.tags[0]?.firstName).map((data) => (
-                  <Creator firstName={data?.tags[0]?.firstName} lastName={data?.tags[0]?.lastName} id={data?.tags[0]?.id} />
+                {filteredCreators && filteredCreators.filter(item => item?.tags[0]?.firstName).slice(random, (random+2)).map((filteredCreators) => (
+                  <Creator firstName={filteredCreators?.tags[0]?.firstName} lastName={filteredCreators?.tags[0]?.lastName} id={filteredCreators?.tags[0]?.id} />
                 ))}
               </div>
               <div className="flex flex-col gap-4">
