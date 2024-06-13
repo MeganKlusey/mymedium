@@ -7,6 +7,7 @@ import Topic from "./components/Topic";
 function Explore() {
   const [data, setData] = useState([]);
   const [creators, setCreators] = useState([]);
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
     fetch("https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918")
@@ -14,6 +15,15 @@ function Explore() {
     .then(data => {
       setData(data.response.results);
       setCreators(data.response.results.tags.firstName);
+    })
+    .catch(err => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    fetch("https://content.guardianapis.com/sections?api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918")
+    .then(res => res.json())
+    .then(data => {
+      setTopics(data.response.results);
     })
     .catch(err => console.log(err));
   }, []);
