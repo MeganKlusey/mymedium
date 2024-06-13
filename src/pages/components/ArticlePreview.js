@@ -1,3 +1,5 @@
+import {NavLink} from 'react-router-dom';
+
 function ArticlePreview(props) {
   return (
     <div className="ArticlePreview">
@@ -13,8 +15,10 @@ function ArticlePreview(props) {
               <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
             </p>
           }
+          <NavLink to='/article'>
             <h2 className={`font-extrabold sm:line-clamp-2 
             ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
+          </NavLink>
           </div>
           <p className="font-light"> 
           {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")} <span className="text-xl align-baseline">&#8902;</span></p>
