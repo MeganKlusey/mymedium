@@ -9,16 +9,16 @@ function ArticlePreview(props) {
         <div className={`article-text flex flex-col 
         ${props.topStory ? 'w-full' : 'w-4/5 justify-between'}`}>
           <div>
-          {props.firstName && 
-            <p className={`uppercase text-md sm:line-clamp-1 
-              ${props.topStory ? '' : 'hidden xs:block'}`}>Written by&nbsp; 
-              <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
-            </p>
-          }
-          <NavLink to='/article'>
-            <h2 className={`font-extrabold sm:line-clamp-2 
-            ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
-          </NavLink>
+            {props.firstName && 
+              <p className={`uppercase text-md sm:line-clamp-1 
+                ${props.topStory ? '' : 'hidden xs:block'}`}>Written by&nbsp; 
+                <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
+              </p>
+            }
+            <NavLink to={`/${props.id}`}>
+              <h2 className={`font-extrabold sm:line-clamp-2 
+              ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
+            </NavLink>
           </div>
           <div className='flex items-center gap-2'>
             <p className="font-light"> 
