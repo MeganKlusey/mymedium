@@ -16,7 +16,7 @@ function ArticlePreview(props) {
               </p>
             }
             <NavLink to={`/${props.id}`}>
-              <h2 className={`font-extrabold sm:line-clamp-2 
+              <h2 className={`font-extrabold sm:line-clamp-2 hover:text-brand-green duration-200 
               ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
             </NavLink>
           </div>
