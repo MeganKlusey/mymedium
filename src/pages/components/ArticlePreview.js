@@ -32,9 +32,12 @@ function ArticlePreview(props) {
             <p className="line-clamp-4">{props.body.replace(/<\/?[^>]*>/g, "")}</p>
           }
         </div>
-        <img className={`object-cover  
-        ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
-        'aspect-square lg:aspect-none w-1/3 h-auto' }`} src={props.thumbnail} alt="" />
+        <div className={`${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
+          'aspect-square lg:aspect-none w-1/3 h-auto' }`}>
+          <NavLink to={`/${props.id}`}>
+            <img className="object-cover w-full h-full" src={props.thumbnail} alt="" />
+          </NavLink>
+        </div>
       </div>
     </div>
   );
