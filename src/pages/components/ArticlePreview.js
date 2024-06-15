@@ -20,8 +20,14 @@ function ArticlePreview(props) {
             ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
           </NavLink>
           </div>
-          <p className="font-light"> 
-          {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")} <span className="text-xl align-baseline">&#8902;</span></p>
+          <div className='flex items-center gap-2'>
+            <p className="font-light"> 
+              {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")}
+            </p>
+            <button className='favourite-button flex h-6 items-center text-sm gap-4 hover:text-brand-green duration-200'>
+              <ion-icon name="star"></ion-icon>
+            </button>
+          </div>
           {props.topStory &&
             <p className="line-clamp-4">{props.body.replace(/<\/?[^>]*>/g, "")}</p>
           }
