@@ -1,11 +1,7 @@
 import Navbar from "./components/Navbar";
 import BackButton from "./components/BackButton";
 
-import {useParams} from 'react-router-dom';
-
 function Article() {
-  const { id } = useParams();
-
   return (
     <div className="Article">
       <Navbar />

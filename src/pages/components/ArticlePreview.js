@@ -15,7 +15,7 @@ function ArticlePreview(props) {
                 <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
               </p>
             }
-            <NavLink to={`/${props.id}`}>
+            <NavLink to={`/explore/${props.id}`}>
               <h2 className={`font-extrabold sm:line-clamp-2 hover:text-brand-green duration-200 
               ${props.topStory ? 'text-4xl' : 'text-xl'}`}>{ props.title }</h2>
             </NavLink>
@@ -34,7 +34,7 @@ function ArticlePreview(props) {
         </div>
         <div className={`hover:opacity-80 duration-200 ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
           'aspect-square lg:aspect-none w-1/3 h-auto' }`}>
-          <NavLink to={`/${props.id}`}>
+          <NavLink to={`/explore/${props.id}`}>
             <img className="object-cover w-full h-full" src={props.thumbnail} alt="" />
           </NavLink>
         </div>

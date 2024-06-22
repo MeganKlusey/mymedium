@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import BackButton from "./components/BackButton";
 
-function Topics() {
+function Topics(props) {
   return (
     <div className="Topics">
       <Navbar />
@@ -9,6 +9,13 @@ function Topics() {
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Topics</h2>
           <BackButton />
+        </div>
+        <div>
+          {props.topics && props.topics.map((topic) => (
+            <>
+              {topic?.webTitle}
+            </>
+          ))}
         </div>
       </div>
     </div>
