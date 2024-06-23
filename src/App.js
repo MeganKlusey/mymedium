@@ -45,10 +45,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />}></ Route>
-          <Route path="/explore" element={<Explore data={data} setData={setData} 
-            topics={topics} setTopics={setTopics} />}>
-            <Route path=":id/*" element={<Article />}></ Route>
-          </ Route>
+          <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} />}></ Route>
+          <Route path="/:id/*" element={<Article data={data} setData={setData} />}></ Route> 
           <Route path="/favourites" element={<Favourites />}></ Route>
           <Route path="/creators" element={<Creators />}></ Route>
           <Route path="/topics" element={<Topics topics={topics} />}></ Route>

@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
+import { useParams, useLocation } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import BackButton from "./components/BackButton";
 
 function Article() {
+  const [article, setArticle] = useState([]);
+
+  const { id } = useParams();
+  const location = useLocation();
+  const wildcard = location.pathname.split('/').slice(2).join('/');
+
+  useEffect(() => {
+    fetch(`https://content.guardianapis.com/${id}/${wildcard}?show-fields=thumbnail,body&show-tags=contributor&api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918`)
+    .then(res => res.json())
+    .then(data => {
+      setArticle(data.response.content);
+    })
+    .catch(err => console.log(err))
+  }, []);
+
+
   return (
     <div className="Article">
       <Navbar />
@@ -10,6 +28,8 @@ function Article() {
           <h2 className="text-2xl font-bold">Article</h2>
           <BackButton />
         </div>
+        {article.webTitle}
+        {article.fields.body}
       </div>
     </div>
   );
