@@ -32,7 +32,7 @@ function Article() {
         <div className="flex items-center justify-end">
           <BackButton />
         </div>
-        <div className="mt-8 pb-8 w-3/4 mx-auto">
+        <div className="mt-8 pb-8 w-full md:w-3/4 mx-auto">
           <h2 className="font-bold text-4xl text-center w-full mb-4 inline-block">{article?.webTitle}</h2>
           {article?.tags && 
             <p className="uppercase text-md w-full sm:line-clamp-1 mt-4 mb-4">Written by&nbsp; 
