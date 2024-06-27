@@ -25,17 +25,23 @@ function Article() {
     <div>Loading...</div>
   }
 
-
   return (
     <div className="Article">
       <Navbar />
       <div className="mt-[10vh] lg:mt-0 p-2.5 xs:p-5">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Article</h2>
+        <div className="flex items-center justify-end">
           <BackButton />
         </div>
-        {article?.webTitle}
-        {article.fields?.body}
+        <div className="mt-8 pb-8 w-3/4 mx-auto">
+          <h2 className="font-bold text-4xl text-center w-full mb-4 inline-block">{article?.webTitle}</h2>
+          {article?.tags && 
+            <p className="uppercase text-md w-full sm:line-clamp-1 mt-4 mb-4">Written by&nbsp; 
+              <span className="font-bold">{article?.tags[0]?.firstName}&nbsp;{article?.tags[0]?.lastName}</span>
+            </p>
+          }
+          <img className="mx-auto w-full" src={article?.fields?.thumbnail} alt="" />
+          <p className="mt-8">{article?.fields?.body.replace(/<\/?[^>]*>/g, "")}</p>
+        </div>
       </div>
     </div>
   );
