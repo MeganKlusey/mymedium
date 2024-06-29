@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import BackButton from "./components/BackButton";
+import Topic from "./components/Topic";
 
 function Topics(props) {
   return (
@@ -10,10 +11,11 @@ function Topics(props) {
           <h2 className="text-2xl font-bold">Topics</h2>
           <BackButton />
         </div>
-        <div>
+        <div className="flex flex-col gap-4 mt-8">
           {props.topics && props.topics.filter(topic => topic?.favourited).map((topic) => (
             <div key={topic?.id}>
-              {topic?.webTitle}
+              <Topic key={topic?.id} topics={props.topics} topic={topic} 
+                setTopics={props.setTopics} title={topic?.webTitle} id={topic?.id} />
             </div>
           ))}
         </div>
