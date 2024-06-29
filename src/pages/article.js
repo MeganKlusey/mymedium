@@ -12,7 +12,7 @@ function Article() {
   const wildcard = location.pathname.split('/').slice(2).join('/');
 
   useEffect(() => {
-    fetch(`https://content.guardianapis.com/${id}/${wildcard}?show-fields=thumbnail,body&show-tags=contributor&api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918`)
+    fetch(`https://content.guardianapis.com/${id}/${wildcard}?show-fields=thumbnail,body&show-tags=contributor&api-key=24859514-0472-4958-939a-9dcfabd248a3`)
     .then(res => res.json())
     .then(data => {
       setArticle(data.response.content);
