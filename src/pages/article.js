@@ -19,7 +19,7 @@ function Article() {
       isLoading(false);
     })
     .catch(err => console.log(err))
-  }, []);
+  }, [id, wildcard]);
 
   if (isLoading) {
     <div>Loading...</div>
