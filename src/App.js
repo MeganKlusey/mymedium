@@ -36,10 +36,6 @@ function App() {
     .catch(err => console.log(err))
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('topics', JSON.stringify(topics));
-  }, [topics]);
-
   return (
     <div className="App">
       <BrowserRouter>

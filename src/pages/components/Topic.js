@@ -6,7 +6,6 @@ function Topic(props) {
       topic.id === props.id ? { ...topic, favourited: !topic.favourited } : topic
     );
     props.setTopics(updatedTopics)
-    localStorage.setItem('topics', JSON.stringify(updatedTopics));
   };
 
   return (
