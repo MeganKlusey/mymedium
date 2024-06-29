@@ -11,7 +11,7 @@ function Topics(props) {
           <BackButton />
         </div>
         <div>
-          {props.topics && props.topics.map((topic) => (
+          {props.topics && props.topics.filter(topic => topic?.favourited).map((topic) => (
             <div key={topic?.id}>
               {topic?.webTitle}
             </div>
