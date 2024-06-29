@@ -18,6 +18,9 @@ function Topics(props) {
                 setTopics={props.setTopics} title={topic?.webTitle} id={topic?.id} />
             </div>
           ))}
+          {props.topics.filter(topic => topic?.favourited).length == 0 && 
+            <p className="text-center font-bold">No topics favourited.</p>
+          }
         </div>
       </div>
     </div>
