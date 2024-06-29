@@ -48,7 +48,7 @@ function App() {
           <Route path="/:id/*" element={<Article data={data} setData={setData} />}></ Route> 
           <Route path="/favourites" element={<Favourites />}></ Route>
           <Route path="/creators" element={<Creators />}></ Route>
-          <Route path="/topics" element={<Topics topics={topics} />}></ Route>
+          <Route path="/topics" element={<Topics topics={topics} setTopics={setTopics} />}></ Route>
         </Routes>
       </BrowserRouter>
     </div>
