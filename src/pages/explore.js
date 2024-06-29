@@ -58,7 +58,7 @@ function Explore(props) {
               </div>
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold mt-16 text-base">Topics</h4>
-                {props.topics && props.topics.slice(0, (0+3)).map((topic) => (
+                {props.topics && props.topics.slice(randomTopicIndex, (randomTopicIndex+3)).map((topic) => (
                   <Topic key={topic?.id} topics={props.topics} topic={topic} 
                   setTopics={props.setTopics} title={topic?.webTitle} id={topic?.id} />
                 ))}
