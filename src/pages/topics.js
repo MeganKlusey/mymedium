@@ -12,9 +12,9 @@ function Topics(props) {
         </div>
         <div>
           {props.topics && props.topics.map((topic) => (
-            <>
+            <div key={topic?.id}>
               {topic?.webTitle}
-            </>
+            </div>
           ))}
         </div>
       </div>
