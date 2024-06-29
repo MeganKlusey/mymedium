@@ -10,6 +10,7 @@ import Topics from './pages/topics.js'
 function App() {
   const [data, setData] = useState([]);
   const [topics, setTopics] = useState([]);
+  const [loading, isLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=24859514-0472-4958-939a-9dcfabd248a3")
@@ -29,9 +30,14 @@ function App() {
         return rest;
       })
       setTopics(filteredData);
+      isLoading(false);
     })
     .catch(err => console.log(err))
   }, []);
+
+  if (isLoading) {
+    <div>Loading...</div>
+  }
 
   return (
     <div className="App">
