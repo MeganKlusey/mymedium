@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import ArticlePreview from "./components/ArticlePreview";
 import Navbar from "./components/Navbar";
 import Creator from "./components/Creator";
@@ -11,7 +12,9 @@ function Explore(props) {
     return filteredCreators;
   }
 
-  let randomCreatorIndex = Math.floor(Math.random() * (creators.length-1));
+  let randomCreatorIndex = useMemo(() => {
+    return Math.floor(Math.random() * (creators.length - 1));
+  }, [creators.length]);
 
   let randomTopicIndex = Math.floor(Math.random() * (creators.length-2));
 
