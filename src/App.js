@@ -9,10 +9,7 @@ import Topics from './pages/topics.js'
 
 function App() {
   const [data, setData] = useState([]);
-  const [topics, setTopics] = useState(() => {
-    const savedTopics = localStorage.getItem('topic');
-    return savedTopics ? JSON.parse(savedTopics) : [];
-  });
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
     fetch("https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=24859514-0472-4958-939a-9dcfabd248a3")
