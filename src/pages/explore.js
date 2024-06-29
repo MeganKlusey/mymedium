@@ -16,7 +16,9 @@ function Explore(props) {
     return Math.floor(Math.random() * (creators.length - 1));
   }, [creators.length]);
 
-  let randomTopicIndex = Math.floor(Math.random() * (creators.length-2));
+  let randomTopicIndex = useMemo(() => {
+    return Math.floor(Math.random() * (props.topics.length - 2));
+  }, [props.topics.length]);
 
   return (
     <div className="Explore lg:h-screen">
