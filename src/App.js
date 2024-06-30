@@ -10,7 +10,6 @@ import Topics from './pages/topics.js'
 function App() {
   const [data, setData] = useState([]);
   const [topics, setTopics] = useState([]);
-  const [loading, isLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=24859514-0472-4958-939a-9dcfabd248a3")
@@ -30,14 +29,9 @@ function App() {
         return rest;
       })
       setTopics(filteredData);
-      isLoading(false);
     })
     .catch(err => console.log(err))
   }, []);
-
-  if (isLoading) {
-    <div>Loading...</div>
-  }
 
   return (
     <div className="App">
@@ -47,7 +41,7 @@ function App() {
           <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} />}></ Route>
           <Route path="/:id/*" element={<Article data={data} setData={setData} />}></ Route> 
           <Route path="/favourites" element={<Favourites />}></ Route>
-          <Route path="/creators" element={<Creators />}></ Route>
+          <Route path="/creators" element={<Creators data={data} setData={setData} />}></ Route>
           <Route path="/topics" element={<Topics topics={topics} setTopics={setTopics} />}></ Route>
         </Routes>
       </BrowserRouter>
