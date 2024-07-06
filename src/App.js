@@ -45,8 +45,6 @@ function App() {
     .catch(err => console.log(err))
   }, []);
 
-  console.log(JSON.stringify(creators.slice(0, 2)))
-
   return (
     <div className="App">
       <BrowserRouter>
