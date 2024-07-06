@@ -5,9 +5,9 @@ import Creator from "./components/Creator";
 import Topic from "./components/Topic";
 
 function Explore(props) {
-  // let randomCreatorIndex = useMemo(() => {
-  //   return Math.floor(Math.random() * (props.creators.length - 1));
-  // }, [props.data.length]);
+  let randomCreatorIndex = useMemo(() => {
+    return Math.floor(Math.random() * (props.creators.length - 1));
+  }, [props.creators.length]);
 
   let randomTopicIndex = useMemo(() => {
     return Math.floor(Math.random() * (props.topics.length - 2));
@@ -45,7 +45,7 @@ function Explore(props) {
             <div className="flex flex-col w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
-                {props.creators && props.creators.slice(0, (0+2)).map((creator) => (
+                {props.creators && props.creators.slice(randomCreatorIndex, (randomCreatorIndex+2)).map((creator) => (
                   <Creator key={creator.id} firstName={creator.firstName} 
                   lastName={creator.lastName} id={creator.id} creators={props.creators}
                   setCreators={props.setCreators} />
