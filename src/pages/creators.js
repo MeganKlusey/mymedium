@@ -12,10 +12,10 @@ function Creators(props) {
           <BackButton />
         </div>
         <div className="flex flex-col gap-4 mt-8">
-          {props.data && props.data.filter(creator => creator?.followed).map((creator) => (
-            <div key={creator?.tags[0].id}>
-              <Creator key={creator?.id} firstName={creator?.tags[0]?.firstName} 
-                lastName={creator?.tags[0]?.lastName} id={creator?.tags[0]?.id}
+          {props.creators && props.creators.filter(creator => creator?.followed).map((creator) => (
+            <div key={creator.id}>
+              <Creator key={creator?.id} firstName={creator?.firstName} 
+                lastName={creator?.lastName} id={creator?.id}
                 data={props.data} setData={props.setData} />
             </div>
           ))}
