@@ -25,9 +25,11 @@ function App() {
     fetch("https://content.guardianapis.com/technology?show-tags=contributor&api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918")
     .then(res => res.json())
     .then(data => {
-      const tags = data.response.results;
-      const extractedTags = tags.map(item => (item.tags && item.tags.length > 0 ? item.tags[0] : null));
-      setCreators(extractedTags.filter(tag => tag !== null));
+      const results = data.response.results;
+      const extractedTags = results.map(item => item.tags ? item.tags[0] : null);
+      const set = new Set();
+      const filteredTags = extractedTags.filter(item => set.has(item.firstName) ? false : set.add(item.firstName));
+      setCreators(filteredTags);
     })
     .catch(err => console.log(err))
   }, []);
