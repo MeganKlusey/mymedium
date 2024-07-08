@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import BackButton from "./components/BackButton";
 
-function Article() {
+function Article(props) {
   const [article, setArticle] = useState([]);
 
   const { id } = useParams();
@@ -18,6 +18,15 @@ function Article() {
     })
     .catch(err => console.log(err))
   }, [id, wildcard]);
+
+  const currentArticle = props.data.find(item => item.id === `${id}/${wildcard}`);
+
+  const handleFavouriteToggle = () => {
+    const updatedData = props.data.map((item) =>
+      item.id === `${id}/${wildcard}` ? { ...item, favourited: !item.favourited } : item
+    );
+    props.setData(updatedData);
+  };
 
   return (
     <div className="Article">
@@ -34,7 +43,9 @@ function Article() {
                 <span className="font-bold">{article.tags[0]?.firstName}&nbsp;{article.tags[0].lastName}</span>
               </p>
             }
-            <button className='favourite-button flex h-6 items-center text-2xl hover:text-brand-green duration-200 ml-auto'>
+            <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'} 
+              favourite-button flex h-6 items-center text-2xl hover:text-brand-green duration-200 ml-auto`}
+              onClick={handleFavouriteToggle}>
               <ion-icon name="star"></ion-icon>
             </button>
           </div>
