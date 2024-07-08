@@ -34,11 +34,16 @@ function Article() {
         </div>
         <div className="mt-8 pb-8 w-full md:w-3/4 mx-auto">
           <h2 className="font-bold text-4xl text-center w-full mb-4 inline-block">{article.webTitle}</h2>
-          {article.tags && article.tags.firstName && 
-            <p className="uppercase text-md w-full sm:line-clamp-1 mt-4 mb-4">Written by&nbsp; 
-              <span className="font-bold">{article.tags[0].firstName}&nbsp;{article.tags[0].lastName}</span>
-            </p>
-          }
+          <div className="flex items-center justify-between mt-4 mb-4">
+            {article.tags && article.tags[0]?.firstName && 
+              <p className="uppercase text-md w-full sm:line-clamp-1">Written by&nbsp; 
+                <span className="font-bold">{article.tags[0]?.firstName}&nbsp;{article.tags[0].lastName}</span>
+              </p>
+            }
+            <button className='favourite-button flex h-6 items-center text-2xl hover:text-brand-green duration-200 ml-auto'>
+              <ion-icon name="star"></ion-icon>
+            </button>
+          </div>
           <img className="mx-auto w-full" src={article.fields?.thumbnail} alt="" />
           <p className="mt-8">{article.fields?.body.replace(/<\/?[^>]*>/g, "")}</p>
         </div>
