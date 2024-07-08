@@ -23,21 +23,21 @@ function Explore(props) {
             <div className="flex flex-col md:flex-row w-full lg:w-3/4 gap-8 md:gap-5">
               <div className="w-full md:w-1/2">
                 {props.data && props.data.slice(0,1).map((data) => (
-                  <ArticlePreview key={data.id} topStory data={props.data} setData={props.setData} 
-                  title={data.webTitle} 
-                  thumbnail={data.fields.thumbnail} body={data.fields.body} 
-                  firstName={data.tags[0].firstName} lastName={data.tags[0].lastName} 
-                  webPublicationDate={data.webPublicationDate} id={data.id} />
+                  <ArticlePreview key={data?.id} topStory data={props.data} setData={props.setData} 
+                  title={data?.webTitle} 
+                  thumbnail={data?.fields?.thumbnail} body={data?.fields.body} 
+                  firstName={data?.tags[0]?.firstName} lastName={data?.tags[0]?.lastName} 
+                  webPublicationDate={data?.webPublicationDate} id={data?.id} />
                 ))}
               </div>
               <div className="grid grid-rows-4 w-full md:w-1/2 h-full justify-stretch 
               gap-5 border-t md:border-0 pt-4 md:pt-0">
                 {props.data && props.data.slice(1,5).map((data) => (
-                  <ArticlePreview key={data.id} data={props.data} setData={props.setData} 
-                  title={data.webTitle} 
-                  thumbnail={data.fields.thumbnail} firstName={data.tags[0].firstName} 
-                  lastName={data.tags[0].lastName} 
-                  webPublicationDate={data.webPublicationDate} id={data.id}  />
+                  <ArticlePreview key={data?.id} data={props.data} setData={props.setData} 
+                  title={data?.webTitle} 
+                  thumbnail={data?.fields.thumbnail} firstName={data?.tags[0]?.firstName} 
+                  lastName={data?.tags[0]?.lastName} 
+                  webPublicationDate={data?.webPublicationDate} id={data?.id}  />
                 ))}
               </div>
             </div>
