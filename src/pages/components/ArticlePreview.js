@@ -20,13 +20,13 @@ function ArticlePreview(props) {
           <div>
             {props.firstName && 
               <p className={`uppercase text-md sm:line-clamp-1 
-                ${props.topStory && 'hidden xs:block'}`}>Written by&nbsp; 
+                ${!props.topStory && 'hidden xs:block'}`}>Written by&nbsp; 
                 <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
               </p>
             }
             <NavLink to={`/${props.id}`}>
               <h2 className={`font-extrabold sm:line-clamp-2 hover:text-brand-green duration-200 
-              ${props.topStory ? 'text-4xl' : 'text-xl'} ${props.favourited ? 'line-clamp-2' : ''}`}>{ props.title }</h2>
+              ${props.topStory ? 'text-4xl' : 'text-xl'} ${props.favourited && 'line-clamp-2'}`}>{ props.title }</h2>
             </NavLink>
           </div>
           <div className={`flex items-center gap-2 ${props.favourited && 'justify-between'}`}>
@@ -35,7 +35,7 @@ function ArticlePreview(props) {
             </p>
             <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'}
             favourite-button flex h-6 items-center gap-4 hover:text-brand-green duration-200
-            ${props.favourited ? 'text-4xl' : 'text-sm'}`}
+            ${props.favourited ? 'text-3xl sm:text-4xl' : 'text-sm'}`}
             onClick={handleFavouriteToggle}>
               <ion-icon name="star"></ion-icon>
             </button>
@@ -45,7 +45,7 @@ function ArticlePreview(props) {
           }
         </div>
         <div className={`hover:opacity-80 duration-200 ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
-          'aspect-square lg:aspect-none w-1/3 h-auto' } ${props.favourited && 'min-w-40 w-40 aspect-none'}`}>
+          'aspect-square lg:aspect-none w-1/3 h-auto' } ${props.favourited && 'w-40'}`}>
           <NavLink to={`/${props.id}`}>
             <img className="object-cover w-full h-full" src={props.thumbnail} alt="" />
           </NavLink>
