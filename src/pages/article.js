@@ -5,7 +5,6 @@ import BackButton from "./components/BackButton";
 
 function Article() {
   const [article, setArticle] = useState([]);
-  const [loading, isLoading] = useState(true);
 
   const { id } = useParams();
   const location = useLocation();
@@ -16,14 +15,9 @@ function Article() {
     .then(res => res.json())
     .then(data => {
       setArticle(data.response.content);
-      isLoading(false);
     })
     .catch(err => console.log(err))
   }, [id, wildcard]);
-
-  if (isLoading) {
-    <div>Loading...</div>
-  }
 
   return (
     <div className="Article">
