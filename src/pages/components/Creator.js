@@ -15,7 +15,7 @@ function Creator(props) {
         <button className={`${currentCreator.followed ? 'bg-brand-green text-white' : 'text-brand-green hover:bg-brand-green hover:text-white'}
         border border-brand-green py-2 px-6 rounded-md h-fit hover:opacity-80 duration-200`}
         onClick={handleFollowToggle}>
-          {currentCreator?.followed ? "Following" : "Follow"}
+          {currentCreator.followed ? "Following" : "Follow"}
         </button>
       </div>
     </div>
