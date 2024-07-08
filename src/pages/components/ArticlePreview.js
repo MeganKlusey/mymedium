@@ -1,6 +1,15 @@
 import {NavLink} from 'react-router-dom';
 
 function ArticlePreview(props) {
+  const currentArticle = props.data.find(data => data.id === props.id);
+
+  const handleFavouriteToggle = () => {
+    const updatedData = props.data.map((item) =>
+      item.id === props.id ? { ...item, favourited: !item.favourited } : item
+    );
+    props.setData(updatedData)
+  };
+
   return (
     <div className="ArticlePreview">
       <div className={`flex gap-2 
@@ -24,7 +33,9 @@ function ArticlePreview(props) {
             <p className="font-light"> 
               {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")}
             </p>
-            <button className='favourite-button flex h-6 items-center text-sm gap-4 hover:text-brand-green duration-200'>
+            <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'}
+            favourite-button flex h-6 items-center text-sm gap-4 hover:text-brand-green duration-200`}
+            onClick={handleFavouriteToggle}>
               <ion-icon name="star"></ion-icon>
             </button>
           </div>
