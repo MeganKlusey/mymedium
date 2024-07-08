@@ -37,7 +37,7 @@ function Explore(props) {
                   title={data?.webTitle} 
                   thumbnail={data?.fields.thumbnail} firstName={data?.tags[0]?.firstName} 
                   lastName={data?.tags[0]?.lastName} 
-                  webPublicationDate={data?.webPublicationDate} id={data?.id}  />
+                  webPublicationDate={data?.webPublicationDate} id={data?.id} />
                 ))}
               </div>
             </div>
