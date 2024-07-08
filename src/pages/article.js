@@ -33,14 +33,14 @@ function Article() {
           <BackButton />
         </div>
         <div className="mt-8 pb-8 w-full md:w-3/4 mx-auto">
-          <h2 className="font-bold text-4xl text-center w-full mb-4 inline-block">{article?.webTitle}</h2>
-          {article?.tags && 
+          <h2 className="font-bold text-4xl text-center w-full mb-4 inline-block">{article.webTitle}</h2>
+          {article.tags && article.tags.firstName && 
             <p className="uppercase text-md w-full sm:line-clamp-1 mt-4 mb-4">Written by&nbsp; 
-              <span className="font-bold">{article?.tags[0]?.firstName}&nbsp;{article?.tags[0]?.lastName}</span>
+              <span className="font-bold">{article.tags[0].firstName}&nbsp;{article.tags[0].lastName}</span>
             </p>
           }
-          <img className="mx-auto w-full" src={article?.fields?.thumbnail} alt="" />
-          <p className="mt-8">{article?.fields?.body.replace(/<\/?[^>]*>/g, "")}</p>
+          <img className="mx-auto w-full" src={article.fields?.thumbnail} alt="" />
+          <p className="mt-8">{article.fields?.body.replace(/<\/?[^>]*>/g, "")}</p>
         </div>
       </div>
     </div>
