@@ -12,53 +12,44 @@ function ArticlePreview(props) {
 
   return (
     <div className="ArticlePreview">
-      <div className={`flex items-center gap-2 h-full ${props.favourited && 'border-b pb-4 w-full'}`}>
-        <div className={`flex gap-2 ${props.topStory ? 'flex-col-reverse justify-end h-auto md:h-screen' 
-        : 'flex-row-reverse md:flex-row h-full border-b pb-4 md:pb-0 md:border-b-0 justify-between'}
-        ${props.favourited && 'flex-row-reverse md:flex-row-reverse w-full border-b-0 pb-0'}`}>
-          <div className={`article-text flex flex-col 
-          ${props.topStory ? 'w-full' : 'w-4/5 justify-between'} ${props.favourited && 'w-full'}`}>
-            <div>
-              {props.firstName && 
-                <p className={`uppercase text-md sm:line-clamp-1 
-                  ${props.topStory && 'hidden xs:block'} ${props.favourited && 'hidden xs:hidden sm:block'}`}>Written by&nbsp; 
-                  <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
-                </p>
-              }
-              <NavLink to={`/${props.id}`}>
-                <h2 className={`font-extrabold sm:line-clamp-2 hover:text-brand-green duration-200 
-                ${props.topStory ? 'text-4xl' : 'text-xl'} ${props.favourited ? 'line-clamp-2' : ''}`}>{ props.title }</h2>
-              </NavLink>
-            </div>
-            <div className='flex items-center gap-2'>
-              <p className="font-light"> 
-                {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")}
+      <div className={`flex gap-2 ${props.topStory ? 'flex-col-reverse justify-end h-auto md:h-screen' 
+      : 'flex-row-reverse md:flex-row h-full justify-between'}
+      ${props.favourited ? 'flex-row-reverse md:flex-row-reverse w-full border-b pb-4' : props.topStory ? 'border-0' : 'border-b pb-4 md:border-0 md:pb-0'}`}>
+        <div className={`article-text flex flex-col 
+        ${props.topStory ? 'w-full' : 'w-4/5 justify-between'} ${props.favourited && 'w-full'}`}>
+          <div>
+            {props.firstName && 
+              <p className={`uppercase text-md sm:line-clamp-1 
+                ${props.topStory && 'hidden xs:block'}`}>Written by&nbsp; 
+                <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
               </p>
-              <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'}
-              favourite-button flex h-6 items-center text-sm gap-4 hover:text-brand-green duration-200
-              ${props.favourited && 'hidden'}`}
-              onClick={handleFavouriteToggle}>
-                <ion-icon name="star"></ion-icon>
-              </button>
-            </div>
-            {props.topStory &&
-              <p className="line-clamp-4">{props.body.replace(/<\/?[^>]*>/g, "")}</p>
             }
-          </div>
-          <div className={`hover:opacity-80 duration-200 ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
-            'aspect-square lg:aspect-none w-1/3 h-auto' } ${props.favourited && 'min-w-40 w-40 aspect-none'}`}>
             <NavLink to={`/${props.id}`}>
-              <img className="object-cover w-full h-full" src={props.thumbnail} alt="" />
+              <h2 className={`font-extrabold sm:line-clamp-2 hover:text-brand-green duration-200 
+              ${props.topStory ? 'text-4xl' : 'text-xl'} ${props.favourited ? 'line-clamp-2' : ''}`}>{ props.title }</h2>
             </NavLink>
           </div>
-        </div>
-        {props.favourited &&
-          <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'}
-            favourite-button flex items-center text-4xl gap-4 hover:text-brand-green duration-200`}
+          <div className={`flex items-center gap-2 ${props.favourited && 'justify-between'}`}>
+            <p className="font-light"> 
+              {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")}
+            </p>
+            <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'}
+            favourite-button flex h-6 items-center gap-4 hover:text-brand-green duration-200
+            ${props.favourited ? 'text-4xl' : 'text-sm'}`}
             onClick={handleFavouriteToggle}>
               <ion-icon name="star"></ion-icon>
-          </button>
-        }
+            </button>
+          </div>
+          {props.topStory &&
+            <p className="line-clamp-4">{props.body.replace(/<\/?[^>]*>/g, "")}</p>
+          }
+        </div>
+        <div className={`hover:opacity-80 duration-200 ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
+          'aspect-square lg:aspect-none w-1/3 h-auto' } ${props.favourited && 'min-w-40 w-40 aspect-none'}`}>
+          <NavLink to={`/${props.id}`}>
+            <img className="object-cover w-full h-full" src={props.thumbnail} alt="" />
+          </NavLink>
+        </div>
       </div>
     </div>
   );
