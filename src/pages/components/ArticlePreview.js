@@ -13,10 +13,9 @@ function ArticlePreview(props) {
   return (
     <div className="ArticlePreview">
       <div className={`flex items-center gap-2 h-full ${props.favourited ? 'border-b pb-4 w-full' : ''}`}>
-        <div className={`flex gap-2 
-        ${props.topStory ? 'flex-col-reverse justify-end h-auto md:h-screen' 
-        : 'flex-row-reverse md:flex-row h-full border-b pb-4 md:pb-0 md:border-0 justify-between'}
-        ${props.favourited ? 'flex-row-reverse md:flex-row-reverse w-full' : ''}`}>
+        <div className={`flex gap-2 ${props.topStory ? 'flex-col-reverse justify-end h-auto md:h-screen' 
+        : 'flex-row-reverse md:flex-row h-full border-b pb-4 md:pb-0 md:border-b-0 justify-between'}
+        ${props.favourited ? 'flex-row-reverse md:flex-row-reverse w-full border-b-0' : ''}`}>
           <div className={`article-text flex flex-col 
           ${props.topStory ? 'w-full' : 'w-4/5 justify-between'} ${props.favourited ? 'w-full' : ''}`}>
             <div>
