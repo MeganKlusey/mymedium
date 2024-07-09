@@ -43,6 +43,7 @@ function App() {
         const {editions, ...rest} = item;
         return rest;
       })
+      filteredData.sort(() => Math.random() - 0.5);
       setTopics(filteredData);
     })
     .catch(err => console.log(err))
