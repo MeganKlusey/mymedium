@@ -5,7 +5,7 @@ import ArticlePreview from "./components/ArticlePreview";
 function Favourites(props) {
   return (
     <div className="Favourites">
-      <Navbar />
+      <Navbar data={props.data} setData={props.setData} topics={props.topics} setTopics={props.setTopics} creators={props.creators} setCreators={props.setCreators} />
       <div className="mt-[10vh] lg:mt-0 p-2.5 xs:p-5">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Favourites</h2>

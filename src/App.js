@@ -55,10 +55,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />}></ Route>
           <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
-          <Route path="/:id/*" element={<Article data={data} setData={setData} />}></ Route> 
-          <Route path="/favourites" element={<Favourites data={data} setData={setData} />}></ Route>
-          <Route path="/creators" element={<Creators creators={creators} setCreators={setCreators} />}></ Route>
-          <Route path="/topics" element={<Topics topics={topics} setTopics={setTopics} />}></ Route>
+          <Route path="/:id/*" element={<Article data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route> 
+          <Route path="/favourites" element={<Favourites data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
+          <Route path="/creators" element={<Creators data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
+          <Route path="/topics" element={<Topics data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
         </Routes>
       </BrowserRouter>
     </div>

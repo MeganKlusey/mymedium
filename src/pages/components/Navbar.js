@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {NavLink} from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import $ from 'jquery';
@@ -20,6 +21,29 @@ function ArticlePreview(props) {
 
     $('.mobile-menu-item').on("click", function() {
       $('body').removeClass('overflow-hidden')
+    });
+
+    const resetStates = () => {
+      const resetData = props.data.map((item) => {
+        return {...item, favourited: false}
+      });
+      const resetCreators = props.creators.map((creator) => {
+        return {...creator, followed: false}
+      });
+      const resetTopics = props.topics.map((topic) => {
+        return {...topic, followed: false}
+      });
+      props.setData(resetData)
+      props.setCreators(resetCreators)
+      props.setTopics(resetTopics)
+    };
+
+    $('.log-out-button').on("click", function() {
+      resetStates();
+    });
+
+    $('.log-out-button-mobile').on("click", function() {
+      resetStates();
     });
 
     let date = new Date($.now());
@@ -70,9 +94,9 @@ function ArticlePreview(props) {
               </div>
             </NavLink>
             <NavLink to="/">
-              <div className="text-2xl hover:text-brand-green duration-200">
+              <button className="log-out-button text-2xl hover:text-brand-green duration-200">
                 <ion-icon name="log-out-outline"></ion-icon>
-              </div>
+              </button>
             </NavLink>
           </div>
         </div>
@@ -89,7 +113,7 @@ function ArticlePreview(props) {
               <p className='mobile-menu-item py-4 border-b hover:text-brand-green'>Topics</p>
             </NavLink>
             <NavLink to="/">
-              <p className='mobile-menu-item py-4 border-b hover:text-brand-green text-right'>Logout</p>
+              <button className='log-out-button-mobile mobile-menu-item py-4 border-b hover:text-brand-green text-right'>Logout</button>
             </NavLink>
           </div>
         </div>

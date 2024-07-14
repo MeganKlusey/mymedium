@@ -16,7 +16,7 @@ function Explore(props) {
   return (
     <div className="Explore lg:h-screen">
       <div className="lg:h-screen">
-        <Navbar />
+        <Navbar data={props.data} setData={props.setData} topics={props.topics} setTopics={props.setTopics} creators={props.creators} setCreators={props.setCreators} />
         <div className="flex h-auto lg:h-[90vh] lg:overflow-hidden relative mt-[10vh] 
         lg:mt-0 relative">
           <div className="flex flex-col lg:flex-row p-2.5 xs:p-5 w-full">

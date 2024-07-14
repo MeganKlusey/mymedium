@@ -5,7 +5,7 @@ import Creator from "./components/Creator";
 function Creators(props) {
   return (
     <div className="Creators">
-      <Navbar />
+      <Navbar data={props.data} setData={props.setData} topics={props.topics} setTopics={props.setTopics} creators={props.creators} setCreators={props.setCreators} />
       <div className="mt-[10vh] lg:mt-0 p-2.5 xs:p-5">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Creators</h2>
