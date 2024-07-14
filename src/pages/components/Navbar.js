@@ -79,19 +79,19 @@ function ArticlePreview(props) {
           </button>
           <div className='hidden sm:flex gap-x-4'>
             <NavLink to="/favourites">
-              <div className="text-2xl hover:text-brand-green duration-200">
+              <button className="text-2xl hover:text-brand-green duration-200">
                 <ion-icon name="star-outline"></ion-icon>
-              </div>
+              </button>
             </NavLink>
             <NavLink to="/creators">
-              <div className="text-2xl hover:text-brand-green duration-200">
+              <button className="text-2xl hover:text-brand-green duration-200">
                 <ion-icon name="people-outline"></ion-icon>
-              </div>
+              </button>
             </NavLink>
             <NavLink to="/topics">
-              <div className="text-2xl hover:text-brand-green duration-200">
+              <button className="text-2xl hover:text-brand-green duration-200">
                 <ion-icon name="list-outline"></ion-icon>
-              </div>
+              </button>
             </NavLink>
             <NavLink to="/">
               <button className="log-out-button text-2xl hover:text-brand-green duration-200">
@@ -104,13 +104,13 @@ function ArticlePreview(props) {
           <hr className="w-full my-2.5 xs:my-5" />
           <div className='px-2.5 px-5'>
             <NavLink to="/favourites">
-              <p className='mobile-menu-item pb-4 border-b hover:text-brand-green'>Favourites</p>
+              <button className='mobile-menu-item pb-4 border-b hover:text-brand-green'>Favourites</button>
             </NavLink>
             <NavLink to="/creators">
-              <p className='mobile-menu-item py-4 border-b hover:text-brand-green'>Creators</p>
+              <button className='mobile-menu-item py-4 border-b hover:text-brand-green'>Creators</button>
             </NavLink>
             <NavLink to="/topics">
-              <p className='mobile-menu-item py-4 border-b hover:text-brand-green'>Topics</p>
+              <button className='mobile-menu-item py-4 border-b hover:text-brand-green'>Topics</button>
             </NavLink>
             <NavLink to="/">
               <button className='log-out-button-mobile mobile-menu-item py-4 border-b hover:text-brand-green text-right'>Logout</button>
