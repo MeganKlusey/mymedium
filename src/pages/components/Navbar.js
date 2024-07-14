@@ -102,18 +102,18 @@ function ArticlePreview(props) {
         </div>
         <div className='mobile-menu bg-white w-full h-[90vh] fixed z-10 top-[10vh] hidden'>
           <hr className="w-full my-2.5 xs:my-5" />
-          <div className='px-2.5 px-5'>
+          <div className='flex flex-col px-2.5 px-5'>
             <NavLink to="/favourites">
-              <button className='mobile-menu-item pb-4 border-b hover:text-brand-green'>Favourites</button>
+              <button className='mobile-menu-item pb-4 border-b hover:text-brand-green w-full text-left'>Favourites</button>
             </NavLink>
             <NavLink to="/creators">
-              <button className='mobile-menu-item py-4 border-b hover:text-brand-green'>Creators</button>
+              <button className='mobile-menu-item py-4 border-b hover:text-brand-green w-full text-left'>Creators</button>
             </NavLink>
             <NavLink to="/topics">
-              <button className='mobile-menu-item py-4 border-b hover:text-brand-green'>Topics</button>
+              <button className='mobile-menu-item py-4 border-b hover:text-brand-green w-full text-left'>Topics</button>
             </NavLink>
             <NavLink to="/">
-              <button className='log-out-button-mobile mobile-menu-item py-4 border-b hover:text-brand-green text-right'>Logout</button>
+              <button className='log-out-button-mobile mobile-menu-item py-4 border-b hover:text-brand-green w-full text-right'>Logout</button>
             </NavLink>
           </div>
         </div>
