@@ -25,12 +25,10 @@ function Index() {
 
   return (
     <div className='Index h-screen p-5'>
-      <NavLink to="/">
-        <button className='flex items-center justify-center gap-x-1 w-full'>
-          <img className='h-8' src={logo} alt='myMedium logo' />
-          <h1 className='font-serif font-bold text-4xl'>myMedium</h1>
-        </button>
-      </NavLink>
+      <div className='flex items-center justify-center gap-x-1 w-full'>
+        <img className='h-8' src={logo} alt='myMedium logo' />
+        <h1 className='font-serif font-bold text-4xl'>myMedium</h1>
+      </div>
       <div className='flex flex-col w-full items-center gap-8 absolute left-1/2 
       -translate-x-1/2 top-[62%] -translate-y-[62%] sm:top-[57%]
       sm:-translate-y-[57%] px-2.5 xs:px-5'>
