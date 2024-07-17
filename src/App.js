@@ -13,7 +13,7 @@ function App() {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    fetch("https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=24859514-0472-4958-939a-9dcfabd248a3")
+    fetch(`https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.json())
     .then(data => {
       setData(data.response.results);
@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("https://content.guardianapis.com/technology?show-tags=contributor&api-key=4b5d97c0-1079-4e16-af07-1e8ec88f1918")
+    fetch(`https://content.guardianapis.com/technology?show-tags=contributor&api-key=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.json())
     .then(data => {
       const results = data.response.results;
@@ -36,7 +36,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("https://content.guardianapis.com/sections?api-key=24859514-0472-4958-939a-9dcfabd248a3")
+    fetch(`https://content.guardianapis.com/sections?api-key=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.json())
     .then(data => {
       const filteredData = data.response.results.map(item => {
