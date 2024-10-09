@@ -33,7 +33,7 @@ function ArticlePreview(props) {
             <p className="font-light"> 
               {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")}
             </p>
-            <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'}
+            <button className={`${currentArticle.favourited ? 'text-brand-green hover:opacity-60' : 'text-black'}
             favourite-button flex h-6 items-center gap-4 hover:text-brand-green duration-200
             ${props.favourited ? 'text-3xl sm:text-4xl' : 'text-sm'}`}
             onClick={handleFavouriteToggle}>

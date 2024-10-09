@@ -43,7 +43,7 @@ function Article(props) {
                 <span className="font-bold">{article.tags[0]?.firstName}&nbsp;{article.tags[0].lastName}</span>
               </p>
             }
-            <button className={`${currentArticle.favourited ? 'text-brand-green' : 'text-black'} 
+            <button className={`${currentArticle.favourited ? 'text-brand-green hover:opacity-60' : 'text-black'} 
               favourite-button flex h-6 items-center text-2xl hover:text-brand-green duration-200 ml-auto`}
               onClick={handleFavouriteToggle}>
               <ion-icon name="star"></ion-icon>
