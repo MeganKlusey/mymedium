@@ -63,7 +63,7 @@ function ArticlePreview(props) {
         h-[10vh] p-2.5 xs:p-5 fixed lg:relative top-0 z-20">
           <div className="flex items-center">
             <NavLink to="/explore">
-              <div className='flex items-center justify-center gap-x-0.5 xs:gap-x-1 w-full'>
+              <div className='flex items-center justify-center gap-x-0.5 xs:gap-x-1 w-full hover:opacity-80'>
                 <img className='h-4 xs:h-8' src={logo} alt='myMedium logo' />
                 <h1 className='font-serif font-bold text-2xl xs:text-4xl'>myMedium</h1>
               </div>
