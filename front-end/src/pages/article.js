@@ -11,7 +11,9 @@ function Article(props) {
   const wildcard = location.pathname.split('/').slice(2).join('/');
 
   useEffect(() => {
-    fetch(`https://content.guardianapis.com/${id}/${wildcard}?show-fields=thumbnail,body&show-tags=contributor&api-key=${process.env.REACT_APP_API_KEY}`)
+    const encodedWildcard = encodeURIComponent(wildcard);
+
+    fetch(`/article/${id}/${encodedWildcard}`)
     .then(res => res.json())
     .then(data => {
       setArticle(data.response.content);
