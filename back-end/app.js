@@ -56,6 +56,5 @@ app.get('/article/:id/:wildcard', async (req, res) => {
   }
 });
 
-
 const port = 8000;
 const server = app.listen(port, ()=>{console.log(`running on localhost: ${port}`)})
