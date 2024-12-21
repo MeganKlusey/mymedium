@@ -11,7 +11,7 @@ function Article(props) {
   const wildcard = location.pathname.split('/').slice(2).join('/');
 
   const apiUrl = process.env.NODE_ENV === 'development'
-  ? 'http://localhost:8000'
+  ? 'http://0.0.0.0:8000'
   : process.env.REACT_APP_API_URL
 
   useEffect(() => {
