@@ -12,17 +12,21 @@ function App() {
   const [creators, setCreators] = useState([]);
   const [topics, setTopics] = useState([]);
 
+  const apiUrl = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:8000'
+  : process.env.REACT_APP_API_URL
+
   useEffect(() => {
-    fetch(`/data`)
+    fetch(`${apiUrl}/data`)
     .then(res => res.json())
     .then(data => {
       setData(data.response.results);
     })
     .catch(err => console.log(err))
-  }, []);
+  }, [apiUrl]);
 
   useEffect(() => {
-    fetch(`/creators`)
+    fetch(`${apiUrl}/creators`)
     .then(res => res.json())
     .then(data => {
       const results = data.response.results;
@@ -33,10 +37,10 @@ function App() {
       setCreators(filteredTags);
     })
     .catch(err => console.log(err))
-  }, []);
+  }, [apiUrl]);
 
   useEffect(() => {
-    fetch(`/topics`)
+    fetch(`${apiUrl}/topics`)
     .then(res => res.json())
     .then(data => {
       const filteredData = data.response.results.map(item => {
@@ -47,7 +51,7 @@ function App() {
       setTopics(filteredData);
     })
     .catch(err => console.log(err))
-  }, []);
+  }, [apiUrl]);
 
   return (
     <div className="App">

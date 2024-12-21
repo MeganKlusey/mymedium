@@ -10,16 +10,20 @@ function Article(props) {
   const location = useLocation();
   const wildcard = location.pathname.split('/').slice(2).join('/');
 
+  const apiUrl = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:8000'
+  : process.env.REACT_APP_API_URL
+
   useEffect(() => {
     const encodedWildcard = encodeURIComponent(wildcard);
 
-    fetch(`/article/${id}/${encodedWildcard}`)
+    fetch(`${apiUrl}/article/${id}/${encodedWildcard}`)
     .then(res => res.json())
     .then(data => {
       setArticle(data.response.content);
     })
     .catch(err => console.log(err))
-  }, [id, wildcard]);
+  }, [id, wildcard, apiUrl]);
 
   const currentArticle = props.data.find(item => item.id === `${id}/${wildcard}`);
 
