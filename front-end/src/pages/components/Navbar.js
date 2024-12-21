@@ -5,22 +5,36 @@ import $ from 'jquery';
 function ArticlePreview(props) {
   $(document).ready(function() {
     $('.mobile-menu-button').on("click", function() {
-      $('.mobile-menu').removeClass('hidden');
-      $('.mobile-menu-button').addClass('hidden');
-      $('.mobile-menu-close-button').removeClass('hidden');
-      $('body').addClass('overflow-hidden');
+      showMobileMenu();
     });
 
     $('.mobile-menu-close-button').on("click", function() {
-      $('.mobile-menu').addClass('hidden');
-      $('.mobile-menu-close-button').addClass('hidden');
-      $('.mobile-menu-button').removeClass('hidden');
-      $('body').removeClass('overflow-hidden');
+      hideMobileMenu();
     });
 
     $('.mobile-menu-item').on("click", function() {
       $('body').removeClass('overflow-hidden')
     });
+
+    $(window).resize(function() {
+      if ($(window).width() > 640) {
+        hideMobileMenu();
+      }
+    });
+
+    const showMobileMenu = () => {
+      $('.mobile-menu').removeClass('hidden');
+      $('.mobile-menu-button').addClass('hidden');
+      $('.mobile-menu-close-button').removeClass('hidden');
+      $('body').addClass('overflow-hidden');
+    };
+
+    const hideMobileMenu = () => {
+      $('.mobile-menu').addClass('hidden');
+      $('.mobile-menu-close-button').addClass('hidden');
+      $('.mobile-menu-button').removeClass('hidden');
+      $('body').removeClass('overflow-hidden');
+    };
 
     const resetStates = () => {
       const resetData = props.data.map((item) => {

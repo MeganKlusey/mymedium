@@ -21,8 +21,6 @@ function Index() {
     });
   }, []);
 
-  
-
   return (
     <div className='Index h-screen p-5'>
       <div className='flex items-center justify-center gap-x-1 w-full'>
