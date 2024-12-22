@@ -12,9 +12,10 @@ function App() {
   const [creators, setCreators] = useState([]);
   const [topics, setTopics] = useState([]);
 
-  const apiUrl = process.env.NODE_ENV === 'development'
-  ? 'http://0.0.0.0:8000'
-  : process.env.REACT_APP_API_URL
+  const apiUrl =
+  // process.env.NODE_ENV === 'development'
+  // ? 'http://0.0.0.0:8000' : 
+  process.env.REACT_APP_API_URL
 
   useEffect(() => {
     fetch(`${apiUrl}/data`)
