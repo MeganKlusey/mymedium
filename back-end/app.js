@@ -54,7 +54,7 @@ app.get('/article/:id/:wildcard', async (req, res) => {
     console.error('Error fetching data:', error.message);
     res.status(500).json({ error: 'Failed to fetch data' });
   }
-})
+});
 
 const port = 8000;
 app.listen(port, '0.0.0.0', () => {console.log(`Running on http://0.0.0.0:${port}`)});
