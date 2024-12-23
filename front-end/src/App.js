@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router basename="/mymedium">
+      <Router basename="/">
         <Routes>
           <Route path="/" element={<Index />}></ Route>
           <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
