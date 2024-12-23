@@ -8,7 +8,7 @@ import Creators from './pages/creators.js'
 import Topics from './pages/topics.js'
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
   const [creators, setCreators] = useState([]);
   const [topics, setTopics] = useState([]);
 
