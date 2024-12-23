@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Index from './pages/index.js'
 import Explore from './pages/explore.js'
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="App">
-      <HashRouter basename="/mymedium">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />}></ Route>
           <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
@@ -65,7 +65,7 @@ function App() {
           <Route path="/creators" element={<Creators data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
           <Route path="/topics" element={<Topics data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
