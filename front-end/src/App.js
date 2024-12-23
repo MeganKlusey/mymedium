@@ -52,7 +52,7 @@ function App() {
       setTopics(filteredData);
     })
     .catch(err => console.log(err))
-  }, [apiUrl]);
+  }, [apiUrl])
 
   return (
     <div className="App">
