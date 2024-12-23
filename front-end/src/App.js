@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Index from './pages/index.js'
 import Explore from './pages/explore.js'
@@ -56,16 +56,16 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter basename="/mymedium">
-        <Routes>
+      <Router basename="/mymedium">
+        <Switch>
           <Route path="/" element={<Index />}></ Route>
           <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
           <Route path="/:id/*" element={<Article data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route> 
           <Route path="/favourites" element={<Favourites data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
           <Route path="/creators" element={<Creators data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
           <Route path="/topics" element={<Topics data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
-        </Routes>
-      </BrowserRouter>
+        </Switch>
+      </Router>
     </div>
   );
 }
