@@ -47,7 +47,7 @@ app.get('/article/:id/:wildcard', async (req, res) => {
   const { id, wildcard } = req.params;
 
   try {
-    const url = `https://content.guardianapis.com/${id}/${wildcard}?show-fields=thumbnail,body&show-tags=contributor&api-key=${API_KEY}`;
+    const url = `https://content.guardianapis.com/${id}/${wildcard}?show-fields=body&show-tags=contributor&show-elements=image&api-key=${API_KEY}`;
     const response = await axios.get(url);
     res.json(response.data);
   } catch (error) {

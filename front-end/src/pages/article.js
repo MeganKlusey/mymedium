@@ -12,7 +12,7 @@ function Article(props) {
 
   const apiUrl = 
   // process.env.NODE_ENV === 'development'
-  // ? 'http://0.0.0.0:8000' :
+  // ? 'http://0.0.0.0:8000';
   process.env.REACT_APP_API_URL
 
   useEffect(() => {
@@ -21,6 +21,14 @@ function Article(props) {
     fetch(`${apiUrl}/article/${id}/${encodedWildcard}`)
     .then(res => res.json())
     .then(data => {
+      const elements = data.response.content.elements.find(item => item.relation === 'main');
+    
+      const mainImage = elements.assets.reduce((prev, current) => 
+        Number(prev.typeData.width) >  Number(current.typeData.width) ? prev : current
+      );
+      
+      elements.assets = [mainImage];
+
       setArticle(data.response.content);
     })
     .catch(err => console.log(err))
@@ -37,7 +45,8 @@ function Article(props) {
 
   return (
     <div className="Article">
-      <Navbar data={props.data} setData={props.setData} topics={props.topics} setTopics={props.setTopics} creators={props.creators} setCreators={props.setCreators} />
+      <Navbar data={props.data} setData={props.setData} topics={props.topics} 
+      setTopics={props.setTopics} creators={props.creators} setCreators={props.setCreators} />
       <div className="mt-[10vh] lg:mt-0 p-2.5 xs:p-5">
         <div className="flex items-center justify-end">
           <BackButton />
@@ -56,7 +65,9 @@ function Article(props) {
               <ion-icon name="star"></ion-icon>
             </button>
           </div>
-          <img className="mx-auto w-full" src={article.fields?.thumbnail} alt="" />
+          {article.elements &&
+            <img className="mx-auto w-full" src={article.elements[0].assets[0].file} alt="" />
+          }
           <p className="mt-8">{article.fields?.body.replace(/<\/?[^>]*>/g, "")}</p>
         </div>
       </div>
