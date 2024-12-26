@@ -29,7 +29,7 @@ function ArticlePreview(props) {
               ${props.topStory ? 'text-4xl' : 'text-xl'} ${props.favourited && 'line-clamp-2'}`}>{ props.title }</h2>
             </NavLink>
           </div>
-          <div className={`flex items-center gap-2 ${props.favourited && 'justify-between'}`}>
+          <div className={`flex items-center gap-2 ${props.topStory && 'my-2.5'}  ${props.favourited && 'justify-between'}`}>
             <p className="font-light"> 
               {props.webPublicationDate.replace(/T/g, ' • ').replace(/Z/g, " ")}
             </p>
