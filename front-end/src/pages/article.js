@@ -68,7 +68,7 @@ function Article(props) {
           {article.elements &&
             <img className="mx-auto w-full" src={article.elements[0].assets[0].file} alt="" />
           }
-          <p className="mt-8" dangerouslySetInnerHTML={{ __html: article.fields?.body }}></p>
+          <p className="mt-8 flex flex-col gap-y-5" dangerouslySetInnerHTML={{ __html: article.fields?.body }}></p>
         </div>
       </div>
     </div>
