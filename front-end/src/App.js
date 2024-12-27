@@ -44,12 +44,13 @@ function App() {
     fetch(`${apiUrl}/topics`)
     .then(res => res.json())
     .then(data => {
-      const filteredData = data.response.results.map(item => {
+      const filteredResults = data.response.results.map(item => {
         const {editions, ...rest} = item;
         return rest;
       })
-      filteredData.sort(() => Math.random() - 0.5);
-      setTopics(filteredData);
+      const filteredTopics = filteredResults.filter(item => !item.webTitle.includes("Do NOT use"));
+      filteredTopics.sort(() => Math.random() - 0.5);
+      setTopics(filteredTopics);
     })
     .catch(err => console.log(err))
   }, [apiUrl]);
