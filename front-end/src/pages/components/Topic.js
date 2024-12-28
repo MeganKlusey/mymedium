@@ -1,10 +1,8 @@
-import { useEffect } from "react";
-
 function Topic(props) {
   const currentTopic = props.topics.find(topic => topic.id === props.id);
 
   const handleFollowToggle = () => {
-    const updatedTopics = props.topics.map((topic) =>
+    const updatedTopics = props.topics.map(topic =>
       topic.id === props.id ? { ...topic, followed: !topic.followed } : topic
     );
     props.setTopics(updatedTopics)
