@@ -8,11 +8,8 @@ function Topic(props) {
       topic.id === props.id ? { ...topic, followed: !topic.followed } : topic
     );
     props.setTopics(updatedTopics)
+    localStorage.setItem('topics-followed', JSON.stringify(updatedTopics));
   };
-
-  useEffect(() => {
-    localStorage.setItem('topics-followed', JSON.stringify(props.topics));
-  }, [props.topics])
 
   return (
     <div className="Topic">
