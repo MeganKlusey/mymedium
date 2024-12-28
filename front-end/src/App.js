@@ -23,7 +23,6 @@ function App() {
       setData(data.response.results);
     })
     .catch(err => console.log(err))
-  }, [apiUrl]);
   }, []);
 
   useEffect(() => {
