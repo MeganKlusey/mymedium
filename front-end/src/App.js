@@ -34,6 +34,12 @@ function App() {
       const set = new Set();
       const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));  
       setCreators(filteredTags);
+      if (creators) {
+        const creatorsFollowed = localStorage.getItem('creators-followed');
+        if (creatorsFollowed) {
+          setCreators(JSON.parse(creatorsFollowed));
+        }
+      }
     })
     .catch(err => console.log(err))
   }, []);
@@ -52,7 +58,7 @@ function App() {
       if (topics) {
         let topicsFollowed = localStorage.getItem('topics-followed');
         if (topicsFollowed) {
-          setTopics(JSON.parse(topicsFollowed))
+          setTopics(JSON.parse(topicsFollowed));
         }
       }
     })
