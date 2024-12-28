@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 function Topic(props) {
   const currentTopic = props.topics.find(topic => topic.id === props.id);
 
@@ -7,6 +9,10 @@ function Topic(props) {
     );
     props.setTopics(updatedTopics)
   };
+
+  useEffect(() => {
+    localStorage.setItem('topics-followed', JSON.stringify(props.topics));
+  }, [props.topics])
 
   return (
     <div className="Topic">

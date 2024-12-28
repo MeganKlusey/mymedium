@@ -32,8 +32,7 @@ function App() {
       const results = data.response.results;
       const extractedTags = results.map(item => item.tags ? item.tags[0] : null);
       const set = new Set();
-      const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));
-      
+      const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));  
       setCreators(filteredTags);
     })
     .catch(err => console.log(err))
@@ -50,6 +49,12 @@ function App() {
       const filteredTopics = filteredResults.filter(item => !item.webTitle.includes("Do NOT use"));
       filteredTopics.sort(() => Math.random() - 0.5);
       setTopics(filteredTopics);
+      if (topics) {
+        let topicsFollowed = localStorage.getItem('topics-followed');
+        if (topicsFollowed) {
+          setTopics(JSON.parse(topicsFollowed))
+        }
+      }
     })
     .catch(err => console.log(err))
   }, []);
