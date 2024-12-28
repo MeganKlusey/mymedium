@@ -8,7 +8,7 @@ import Creators from './pages/creators.js'
 import Topics from './pages/topics.js'
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
   const [creators, setCreators] = useState([]);
   const [topics, setTopics] = useState([]);
 
@@ -50,19 +50,9 @@ function App() {
       const filteredTopics = filteredResults.filter(item => !item.webTitle.includes("Do NOT use"));
       filteredTopics.sort(() => Math.random() - 0.5);
       setTopics(filteredTopics);
-      if (topics) {
-        let topicsFollowed = localStorage.getItem('topics-followed');
-        if (topicsFollowed) {
-          setTopics(JSON.parse(topicsFollowed))
-        }
-      }
     })
     .catch(err => console.log(err))
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('topics-followed', JSON.stringify(topics));
-  }, [topics])
 
   return (
     <div className="App">
