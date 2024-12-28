@@ -2,10 +2,11 @@ function Creator(props) {
   const currentCreator = props.creators.find(creator => creator.id === props.id);
 
   const handleFollowToggle = () => {
-    const updatedCreators = props.creators.map((item) =>
-      item.id === props.id ? { ...item, followed: !item.followed } : item
+    const updatedCreators = props.creators.map(creator =>
+      creator.id === props.id ? { ...creator, followed: !creator.followed } : creator
     );
     props.setCreators(updatedCreators);
+    localStorage.setItem('creators-followed', JSON.stringify(updatedCreators));
   };
 
   return (
