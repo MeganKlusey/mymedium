@@ -7,7 +7,8 @@ function ArticlePreview(props) {
     const updatedData = props.data.map((item) =>
       item.id === props.id ? { ...item, favourited: !item.favourited } : item
     );
-    props.setData(updatedData)
+    props.setData(updatedData);
+    localStorage.setItem('articles-favourited', JSON.stringify(updatedData));
   };
 
   return (

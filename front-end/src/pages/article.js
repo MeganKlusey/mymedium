@@ -40,6 +40,7 @@ function Article(props) {
       item.id === `${id}/${wildcard}` ? { ...item, favourited: !item.favourited } : item
     );
     props.setData(updatedData);
+    localStorage.setItem('articles-favourited', JSON.stringify(updatedData));
   };
 
   return (

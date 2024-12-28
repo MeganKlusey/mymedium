@@ -21,6 +21,12 @@ function App() {
     .then(res => res.json())
     .then(data => {
       setData(data.response.results);
+      if (data) {
+        const articlesFavourited = localStorage.getItem('articles-favourited');
+        if (articlesFavourited) {
+          setData(JSON.parse(articlesFavourited));
+        }
+      }
     })
     .catch(err => console.log(err))
   }, []);
