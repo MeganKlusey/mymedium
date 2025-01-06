@@ -29,7 +29,7 @@ function App() {
       }
     })
     .catch(err => console.log(err))
-  }, []);
+  }, [apiUrl]);
 
   useEffect(() => {
     fetch(`${apiUrl}/creators`)
@@ -48,7 +48,7 @@ function App() {
       }
     })
     .catch(err => console.log(err))
-  }, []);
+  }, [apiUrl]);
 
   useEffect(() => {
     fetch(`${apiUrl}/topics`)
@@ -69,7 +69,7 @@ function App() {
       }
     })
     .catch(err => console.log(err))
-  }, []);
+  }, [apiUrl]);
 
   return (
     <div className="App">
