@@ -13,8 +13,8 @@ function App() {
   const [topics, setTopics] = useState([]);
 
   const apiUrl =
-  'http://0.0.0.0:8000'
-  //process.env.REACT_APP_API_URL;
+  //'http://0.0.0.0:8000'
+  process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     fetch(`${apiUrl}/data`)
