@@ -16,18 +16,22 @@ function Article(props) {
 
   useEffect(() => {
     const encodedWildcard = encodeURIComponent(wildcard);
+    console.log(`${apiUrl}/article/${id}/${encodedWildcard}`)
 
     fetch(`${apiUrl}/article/${id}/${encodedWildcard}`)
     .then(res => res.json())
     .then(data => {
       const elements = data.response.content.elements.find(item => item.relation === 'main');
-    
-      const mainImage = elements.assets.reduce((prev, current) => 
+      console.log(`Test ${elements}`)
+
+      const mainImage = elements?.assets?.reduce((prev, current) => 
         Number(prev.typeData.width) >  Number(current.typeData.width) ? prev : current
       );
-      
-      elements.assets = [mainImage];
 
+      if (mainImage) {
+        elements.assets = [mainImage];
+      }
+      
       setArticle(data.response.content);
     })
     .catch(err => console.log(err))
@@ -65,8 +69,11 @@ function Article(props) {
               <ion-icon name="star"></ion-icon>
             </button>
           </div>
-          {article.elements &&
+          {article.elements && article.elements[0]?.assets && article.elements[0].assets[0].file &&
             <img className="mx-auto w-full" src={article.elements[0].assets[0].file} alt="" />
+          }
+          {article.elements && !article.elements[0]?.assets &&
+            <img className="mx-auto w-full" src={article.fields?.thumbnail} alt="" />
           }
           <p className="mt-8 flex flex-col gap-y-5" dangerouslySetInnerHTML={{ __html: article.fields?.body }}></p>
         </div>
