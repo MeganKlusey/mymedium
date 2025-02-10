@@ -49,6 +49,9 @@ function ArticlePreview(props) {
       props.setData(resetData)
       props.setCreators(resetCreators)
       props.setTopics(resetTopics)
+      localStorage.setItem('articles-favourited', JSON.stringify(resetData));
+      localStorage.setItem('creators-followed', JSON.stringify(resetCreators));
+      localStorage.setItem('topics-followed', JSON.stringify(resetTopics));
     };
 
     $('.log-out-button').on("click", function() {
