@@ -117,7 +117,7 @@ function ArticlePreview(props) {
           </div>
         </div>
         <div className='mobile-menu bg-white w-full h-[90vh] fixed z-10 top-[10vh] hidden'>
-          <hr className="w-full my-2.5 xs:my-5" />
+          <hr className="w-full my-2.5 xs:my-5 border-0" />
           <div className='flex flex-col px-2.5 px-5'>
             <NavLink to="/favourites">
               <button className='mobile-menu-item pb-4 border-b hover:text-brand-green w-full text-left'>Favourites</button>

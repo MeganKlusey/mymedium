@@ -48,7 +48,7 @@ function Explore(props) {
                 <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
               }
             </div>
-            <hr className="hidden md:block bg-black h-full w-full lg:w-px my-8 lg:my-0 lg:mx-5" />
+            <hr className="hidden md:block bg-black h-full w-full lg:w-px my-8 lg:my-0 lg:mx-5 border-0" />
             <div className="flex flex-col w-full lg:w-1/4">
               <div className="flex flex-col gap-4">
                 <h4 className="uppercase font-bold text-base mt-8 md:mt-0">Creators</h4>
