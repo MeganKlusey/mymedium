@@ -20,54 +20,75 @@ function App() {
   process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    fetch(`${apiUrl}/data`)
-    .then(res => res.json())
-    .then(data => {
-      setData(data.response.results);
-      if (data) {
-        const articlesFavourited = localStorage.getItem('articles-favourited');
-        if (articlesFavourited) {
-          setData(JSON.parse(articlesFavourited));
+    const fetchData = () => {
+      fetch(`${apiUrl}/data`)
+      .then(res => res.json())
+      .then(data => {
+        setData(data.response.results);
+        if (data) {
+          const articlesFavourited = localStorage.getItem('articles-favourited');
+          if (articlesFavourited) {
+            setData(JSON.parse(articlesFavourited));
+          }
+          setDataLoading(false);
         }
-        setDataLoading(false);
-      }
-    })
-    .catch(err => console.log(err))
-  }, [apiUrl]);
-
-  useEffect(() => {
-    fetch(`${apiUrl}/creators`)
-    .then(res => res.json())
-    .then(data => {
-      const results = data.response.results;
-      const extractedTags = results.map(item => item.tags ? item.tags[0] : null);
-      const set = new Set();
-      const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));
-      const creatorsFollowed = localStorage.getItem('creators-followed');
-
-      setCreators(creatorsFollowed ? JSON.parse(creatorsFollowed) : filteredTags);
-      setCreatorsLoading(false);
-    })
-    .catch(err => console.log(err))
-  }, [apiUrl]);
-
-  useEffect(() => {
-    fetch(`${apiUrl}/topics`)
-    .then(res => res.json())
-    .then(data => {
-      const filteredResults = data.response.results.map(item => {
-        const {editions, ...rest} = item;
-        return rest;
       })
-      const filteredTopics = filteredResults.filter(item => !item.webTitle.includes("Do NOT use"));
-      const topicsFollowed = localStorage.getItem('topics-followed');
-      
-      filteredTopics.sort(() => Math.random() - 0.5);
+      .catch(err => console.log(err))
+    };
 
-      setTopics(topicsFollowed ? JSON.parse(topicsFollowed) : filteredTopics);
-      setTopicsLoading(false);
-    })
-    .catch(err => console.log(err))
+    fetchData();
+    const interval = setInterval(fetchData, 3600000);
+  
+    return () => clearInterval(interval);
+  }, [apiUrl]);
+
+  useEffect(() => {
+    const fetchCreators = () => {
+      fetch(`${apiUrl}/creators`)
+      .then(res => res.json())
+      .then(data => {
+        const results = data.response.results;
+        const extractedTags = results.map(item => item.tags ? item.tags[0] : null);
+        const set = new Set();
+        const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));
+        const creatorsFollowed = localStorage.getItem('creators-followed');
+
+        setCreators(creatorsFollowed ? JSON.parse(creatorsFollowed) : filteredTags);
+        setCreatorsLoading(false);
+      })
+      .catch(err => console.log(err))
+    }
+
+    fetchCreators();
+    const interval = setInterval(fetchCreators, 3600000);
+  
+    return () => clearInterval(interval);
+  }, [apiUrl]);
+
+  useEffect(() => {
+    const fetchTopics = () => {
+      fetch(`${apiUrl}/topics`)
+      .then(res => res.json())
+      .then(data => {
+        const filteredResults = data.response.results.map(item => {
+          const {editions, ...rest} = item;
+          return rest;
+        })
+        const filteredTopics = filteredResults.filter(item => !item.webTitle.includes("Do NOT use"));
+        const topicsFollowed = localStorage.getItem('topics-followed');
+        
+        filteredTopics.sort(() => Math.random() - 0.5);
+
+        setTopics(topicsFollowed ? JSON.parse(topicsFollowed) : filteredTopics);
+        setTopicsLoading(false);
+      })
+      .catch(err => console.log(err))
+    }
+
+  fetchTopics();
+    const interval = setInterval(fetchTopics, 3600000);
+  
+    return () => clearInterval(interval);
   }, [apiUrl]);
 
   return (
