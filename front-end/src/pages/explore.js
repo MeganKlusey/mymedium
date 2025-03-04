@@ -45,7 +45,7 @@ function Explore(props) {
                 </>
               }
               {props.dataLoading &&
-                <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
+                <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
               }
             </div>
             <hr className="hidden md:block bg-black h-full w-full lg:w-px my-8 lg:my-0 lg:mx-5" />
@@ -58,7 +58,7 @@ function Explore(props) {
                   setCreators={props.setCreators} />
                 ))}
                 {props.creatorsLoading &&
-                  <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
+                  <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
                 }
               </div>
               <div className="flex flex-col gap-4">
@@ -68,7 +68,7 @@ function Explore(props) {
                   setTopics={props.setTopics} title={topic.webTitle} id={topic.id} />
                 ))}
                 {props.topicsLoading &&
-                  <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
+                  <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
                 }
               </div>
             </div>

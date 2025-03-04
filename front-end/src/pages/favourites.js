@@ -25,7 +25,7 @@ function Favourites(props) {
             <p className="text-center font-bold">No articles favourited.</p>
           }
           {props.dataLoading &&
-            <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
+            <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
           }
         </div>
       </div>

@@ -23,7 +23,7 @@ function Topics(props) {
             <p className="text-center font-bold">No topics followed.</p>
           }
           {props.topicsLoading &&
-            <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
+            <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
           }
         </div>
       </div>

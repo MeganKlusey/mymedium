@@ -83,7 +83,7 @@ function Article(props) {
             </>
           }
           {articleLoading &&
-            <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
+            <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
           }
         </div>
       </div>

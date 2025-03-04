@@ -23,7 +23,7 @@ function Creators(props) {
             <p className="text-center font-bold">No creators followed.</p>
           }
           {props.creatorsLoading &&
-            <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
+            <div className="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
           }
         </div>
       </div>

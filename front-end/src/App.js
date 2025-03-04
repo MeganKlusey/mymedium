@@ -53,7 +53,7 @@ function App() {
       }
     })
     .catch(err => console.log(err))
-  }, [apiUrl]);
+  }, [apiUrl, creators]);
 
   useEffect(() => {
     fetch(`${apiUrl}/topics`)
