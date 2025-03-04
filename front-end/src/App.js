@@ -42,18 +42,14 @@ function App() {
       const results = data.response.results;
       const extractedTags = results.map(item => item.tags ? item.tags[0] : null);
       const set = new Set();
-      const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));  
-      setCreators(filteredTags);
-      if (creators) {
-        const creatorsFollowed = localStorage.getItem('creators-followed');
-        if (creatorsFollowed) {
-          setCreators(JSON.parse(creatorsFollowed));
-        }
-        setCreatorsLoading(false);
-      }
+      const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));
+      const creatorsFollowed = localStorage.getItem('creators-followed');
+
+      setCreators(creatorsFollowed ? JSON.parse(creatorsFollowed) : filteredTags);
+      setCreatorsLoading(false);
     })
     .catch(err => console.log(err))
-  }, [apiUrl, creators]);
+  }, [apiUrl]);
 
   useEffect(() => {
     fetch(`${apiUrl}/topics`)
@@ -64,15 +60,12 @@ function App() {
         return rest;
       })
       const filteredTopics = filteredResults.filter(item => !item.webTitle.includes("Do NOT use"));
+      const topicsFollowed = localStorage.getItem('topics-followed');
+      
       filteredTopics.sort(() => Math.random() - 0.5);
-      setTopics(filteredTopics);
-      if (topics) {
-        let topicsFollowed = localStorage.getItem('topics-followed');
-        if (topicsFollowed) {
-          setTopics(JSON.parse(topicsFollowed));
-        }
-        setTopicsLoading(false);
-      }
+
+      setTopics(topicsFollowed ? JSON.parse(topicsFollowed) : filteredTopics);
+      setTopicsLoading(false);
     })
     .catch(err => console.log(err))
   }, [apiUrl]);
