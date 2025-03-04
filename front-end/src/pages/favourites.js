@@ -12,7 +12,7 @@ function Favourites(props) {
           <BackButton />
         </div>
         <div className="flex flex-col gap-4 mt-8">
-          {props.data && props.data.filter(data => data.favourited).map((data) => (
+          {!props.dataLoading && props.data && props.data.filter(data => data.favourited).map((data) => (
             <div key={data.id}>
               <ArticlePreview key={data?.id} data={props?.data} setData={props?.setData} 
                 title={data?.webTitle} 
@@ -21,8 +21,11 @@ function Favourites(props) {
                 webPublicationDate={data?.webPublicationDate} id={data?.id} favourited  />
             </div>
           ))}
-          {props.data.filter(topic => topic.favourited).length === 0 && 
+          {!props.dataLoading && props.data.filter(data => data.favourited).length === 0 && 
             <p className="text-center font-bold">No articles favourited.</p>
+          }
+          {props.dataLoading &&
+            <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
           }
         </div>
       </div>
