@@ -10,7 +10,7 @@ function Index() {
       let text = 'Dive deeper into topics that matter to you.';
       let letters = '<span>' + text.split('').join('</span><span>') + '</span>';
 
-      $(letters).hide().appendTo('.type-animation').each(function (i) {
+      $(letters).hide().appendTo('.typing-animation').each(function (i) {
         $(this).delay(40 * i).css({
           display: 'inline',
           opacity: 0
@@ -38,7 +38,7 @@ function Index() {
         <div className='relative'>
           <p className='font-serif opacity-0 text-6xl md:text-8xl font-extrabold md:w-4/5 
           text-center'>Dive deeper into topics that matter to you.</p>
-          <p className='type-animation absolute top-0 left-1/2 -translate-x-1/2 font-serif 
+          <p className='typing-animation absolute top-0 left-1/2 -translate-x-1/2 font-serif 
           text-6xl md:text-8xl font-extrabold w-full md:w-4/5 text-center' aria-hidden='true'></p>
         </div>
         <NavLink to='/explore'>
