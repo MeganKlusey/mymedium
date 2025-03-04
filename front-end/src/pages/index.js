@@ -9,8 +9,8 @@ function Index() {
     $(document).ready(function() {
       let text = 'Dive deeper into topics that matter to you.';
   
-      let spans = '<span>' + text.split('').join('</span><span>') + '</span>';
-      $(spans).hide().appendTo('.type-animation').each(function (i) {
+      let letters = '<span>' + text.split('').join('</span><span>') + '</span>';
+      $(letters).hide().appendTo('.type-animation').each(function (i) {
         $(this).delay(40 * i).css({
           display: 'inline',
           opacity: 0
