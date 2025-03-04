@@ -85,11 +85,13 @@ function App() {
       .catch(err => console.log(err))
     }
 
-  fetchTopics();
+    fetchTopics();
     const interval = setInterval(fetchTopics, 3600000);
   
     return () => clearInterval(interval);
   }, [apiUrl]);
+  
+
 
   return (
     <div className="App">

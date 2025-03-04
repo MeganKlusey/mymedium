@@ -6,24 +6,21 @@ import $ from 'jquery';
 
 function Index() {
   useEffect(() => {
-    $(document).ready(function() {
-      let text = 'Dive deeper into topics that matter to you.';
-      let letters = '<span>' + text.split('').join('</span><span>') + '</span>';
+    let text = 'Dive deeper into topics that matter to you.';
+    let letters = '<span>' + text.split('').join('</span><span>') + '</span>';
 
-      $(letters).hide().appendTo('.typing-animation').each(function (i) {
-        $(this).delay(40 * i).css({
-          display: 'inline',
-          opacity: 0
-        }).animate({
-          opacity: 1
-        }, 0);
-      });
-
-      setTimeout(() => {
-        $('.right-chevron').addClass('slide');
-      }, 40 * text.length)
-
+    $(letters).hide().appendTo('.typing-animation').each(function (i) {
+      $(this).delay(40 * i).css({
+        display: 'inline',
+        opacity: 0
+      }).animate({
+        opacity: 1
+      }, 0);
     });
+
+    setTimeout(() => {
+      $('.right-chevron').addClass('slide');
+    }, 40 * text.length)
   }, []);
 
   return (
