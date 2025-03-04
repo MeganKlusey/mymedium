@@ -5,6 +5,7 @@ import BackButton from "./components/BackButton";
 
 function Article(props) {
   const [article, setArticle] = useState([]);
+  const [articleLoading, setArticleLoading] = useState(true);
 
   const { id } = useParams();
   const location = useLocation();
@@ -33,6 +34,7 @@ function Article(props) {
       }
       
       setArticle(data.response.content);
+      setArticleLoading(false);
     })
     .catch(err => console.log(err))
   }, [id, wildcard, apiUrl]);
@@ -55,27 +57,34 @@ function Article(props) {
         <div className="flex items-center justify-end">
           <BackButton />
         </div>
-        <div className="mt-8 pb-8 w-full md:w-3/4 mx-auto">
-          <h2 className="font-bold text-4xl text-center w-full mb-4 inline-block">{article.webTitle}</h2>
-          <div className="flex items-center justify-between mt-4 mb-4">
-            {article.tags && article.tags[0]?.firstName && 
-              <p className="uppercase text-md w-full sm:line-clamp-1">Written by&nbsp; 
-                <span className="font-bold">{article.tags[0]?.firstName}&nbsp;{article.tags[0].lastName}</span>
-              </p>
-            }
-            <button className={`${currentArticle?.favourited ? 'text-brand-green hover:opacity-80' : 'text-black'} 
-              favourite-button flex h-6 items-center text-2xl hover:text-brand-green duration-200 ml-auto`}
-              onClick={handleFavouriteToggle}>
-              <ion-icon name="star"></ion-icon>
-            </button>
-          </div>
-          {article.elements && article.elements[0]?.assets && article.elements[0].assets[0].file &&
-            <img className="mx-auto w-full" src={article.elements[0].assets[0].file} alt="" />
+        <div className="flex flex-col mt-8 pb-8 w-full md:w-3/4 mx-auto">
+          {!articleLoading &&
+            <>
+              <h2 className="font-bold text-4xl text-center w-full mb-4 inline-block">{article.webTitle}</h2>
+              <div className="flex items-center justify-between mt-4 mb-4">
+                {article.tags && article.tags[0]?.firstName && 
+                  <p className="uppercase text-md w-full sm:line-clamp-1">Written by&nbsp; 
+                    <span className="font-bold">{article.tags[0]?.firstName}&nbsp;{article.tags[0].lastName}</span>
+                  </p>
+                }
+                <button className={`${currentArticle?.favourited ? 'text-brand-green hover:opacity-80' : 'text-black'} 
+                  favourite-button flex h-6 items-center text-2xl hover:text-brand-green duration-200 ml-auto`}
+                  onClick={handleFavouriteToggle}>
+                  <ion-icon name="star"></ion-icon>
+                </button>
+              </div>
+              {article.elements && article.elements[0]?.assets && article.elements[0].assets[0].file &&
+                <img className="mx-auto w-full" src={article.elements[0].assets[0].file} alt="" />
+              }
+              {article.elements && !article.elements[0]?.assets &&
+                <img className="mx-auto w-full" src={article.fields?.thumbnail} alt="" />
+              }
+              <p className="mt-8 flex flex-col gap-y-5" dangerouslySetInnerHTML={{ __html: article.fields?.body }}></p>
+            </>
           }
-          {article.elements && !article.elements[0]?.assets &&
-            <img className="mx-auto w-full" src={article.fields?.thumbnail} alt="" />
+          {articleLoading &&
+            <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
           }
-          <p className="mt-8 flex flex-col gap-y-5" dangerouslySetInnerHTML={{ __html: article.fields?.body }}></p>
         </div>
       </div>
     </div>
