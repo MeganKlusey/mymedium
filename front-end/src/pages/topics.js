@@ -13,14 +13,17 @@ function Topics(props) {
           <BackButton />
         </div>
         <div className="flex flex-col gap-4 mt-8">
-          {props.topics && props.topics.filter(topic => topic.followed).map((topic) => (
+          {!props.topicsLoading && props.topics && props.topics.filter(topic => topic.followed).map((topic) => (
             <div key={topic.id}>
               <Topic key={topic.id} topics={props.topics}
                 setTopics={props.setTopics} title={topic.webTitle} id={topic.id} />
             </div>
           ))}
-          {props.topics.filter(topic => topic.followed).length === 0 && 
+          {!props.topicsLoading && props.topics.filter(topic => topic.followed).length === 0 && 
             <p className="text-center font-bold">No topics followed.</p>
+          }
+          {props.topicsLoading &&
+            <div class="lds-ellipsis text-brand-green"><div></div><div></div><div></div><div></div></div>
           }
         </div>
       </div>
