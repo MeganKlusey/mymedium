@@ -12,7 +12,7 @@ const API_KEY = process.env.API_KEY;
 
 app.get('/data', async (req, res) => {
   try {
-    const url = `https://content.guardianapis.com/technology?show-fields=thumbnail,body&show-tags=contributor&api-key=${API_KEY}`;
+    const url = `https://content.guardianapis.com/search?show-fields=thumbnail,body&show-tags=contributor&api-key=${API_KEY}`;
     const response = await axios.get(url);
     res.json(response.data);
   } catch (error) {
@@ -23,7 +23,7 @@ app.get('/data', async (req, res) => {
 
 app.get('/creators', async (req, res) => {
   try {
-    const url = `https://content.guardianapis.com/technology?show-tags=contributor&api-key=${API_KEY}`;
+    const url = `https://content.guardianapis.com/search?show-tags=contributor&api-key=${API_KEY}`;
     const response = await axios.get(url);
     res.json(response.data);
   } catch (error) {
