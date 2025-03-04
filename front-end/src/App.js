@@ -82,7 +82,7 @@ function App() {
       <Router basename="/">
         <Routes>
           <Route path="/" element={<Index />}></ Route>
-          <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
+          <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} dataLoading={dataLoading} creatorsLoading={creatorsLoading} topicsLoading={topicsLoading} />}></ Route>
           <Route path="/:id/*" element={<Article data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route> 
           <Route path="/favourites" element={<Favourites data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} dataLoading={dataLoading} />}></ Route>
           <Route path="/creators" element={<Creators data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} creatorsLoading={creatorsLoading} />}></ Route>
