@@ -12,6 +12,7 @@ function App() {
   const [creators, setCreators] = useState([]);
   const [topics, setTopics] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
+  const [creatorsLoading, setCreatorsLoading] = useState(true);
 
   const apiUrl =
   //'http://0.0.0.0:8000'
@@ -47,6 +48,7 @@ function App() {
         if (creatorsFollowed) {
           setCreators(JSON.parse(creatorsFollowed));
         }
+        setCreatorsLoading(false);
       }
     })
     .catch(err => console.log(err))
@@ -81,7 +83,7 @@ function App() {
           <Route path="/explore" element={<Explore data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
           <Route path="/:id/*" element={<Article data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route> 
           <Route path="/favourites" element={<Favourites data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} dataLoading={dataLoading} />}></ Route>
-          <Route path="/creators" element={<Creators data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
+          <Route path="/creators" element={<Creators data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} creatorsLoading={creatorsLoading} />}></ Route>
           <Route path="/topics" element={<Topics data={data} setData={setData} topics={topics} setTopics={setTopics} creators={creators} setCreators={setCreators} />}></ Route>
         </Routes>
       </Router>
