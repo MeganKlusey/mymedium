@@ -9,7 +9,7 @@ function Index() {
     $(document).ready(function() {
       let text = 'Dive deeper into topics that matter to you.';
       let letters = '<span>' + text.split('').join('</span><span>') + '</span>';
-      
+
       $(letters).hide().appendTo('.type-animation').each(function (i) {
         $(this).delay(40 * i).css({
           display: 'inline',
@@ -18,6 +18,11 @@ function Index() {
           opacity: 1
         }, 0);
       });
+
+      setTimeout(() => {
+        $('.right-chevron').addClass('slide');
+      }, 40 * text.length)
+
     });
   }, []);
 
@@ -41,7 +46,7 @@ function Index() {
           items-center justify-center text-xl rounded-md py-5 w-72 tracking-wider 
           hover:opacity-80 duration-200'>
             <p>Get started</p>
-            <img className='w-5' src={rightChevronIcon} alt="Right chevron icon" />
+            <img className='w-5 right-chevron' src={rightChevronIcon} alt="Right chevron icon" />
           </button>
         </NavLink>
       </div>
