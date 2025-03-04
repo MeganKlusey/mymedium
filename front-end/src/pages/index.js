@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/logo.svg';
 import rightChevronIcon from '../assets/images/right-chevron-icon.svg';
 import $ from 'jquery';
@@ -8,8 +8,8 @@ function Index() {
   useEffect(() => {
     $(document).ready(function() {
       let text = 'Dive deeper into topics that matter to you.';
-  
       let letters = '<span>' + text.split('').join('</span><span>') + '</span>';
+      
       $(letters).hide().appendTo('.type-animation').each(function (i) {
         $(this).delay(40 * i).css({
           display: 'inline',
