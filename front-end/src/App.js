@@ -24,8 +24,9 @@ function App() {
       fetch(`${apiUrl}/data`)
       .then(res => res.json())
       .then(data => {
+        const results = data.response.results;
         const articlesFavourited = localStorage.getItem('articles-favourited');
-        const finalData = articlesFavourited ? [...JSON.parse(articlesFavourited), data.response.results] : data.response.results;
+        const finalData = articlesFavourited ? [...JSON.parse(articlesFavourited), results] : results;
 
         setData(finalData);
         setDataLoading(false);
@@ -50,7 +51,9 @@ function App() {
         const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));
         const creatorsFollowed = localStorage.getItem('creators-followed');
 
-        setCreators(creatorsFollowed ? JSON.parse(creatorsFollowed) : filteredTags);
+        const finalCreators = creatorsFollowed ? [...JSON.parse(creatorsFollowed), filteredTags] : filteredTags;
+
+        setCreators(finalCreators);
         setCreatorsLoading(false);
       })
       .catch(err => console.log(err))
