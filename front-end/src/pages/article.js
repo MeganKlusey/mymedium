@@ -17,13 +17,11 @@ function Article(props) {
 
   useEffect(() => {
     const encodedWildcard = encodeURIComponent(wildcard);
-    console.log(`${apiUrl}/article/${id}/${encodedWildcard}`)
 
     fetch(`${apiUrl}/article/${id}/${encodedWildcard}`)
     .then(res => res.json())
     .then(data => {
       const elements = data.response.content.elements.find(item => item.relation === 'main');
-      console.log(`Test ${elements}`)
 
       const mainImage = elements?.assets?.reduce((prev, current) => 
         Number(prev.typeData.width) >  Number(current.typeData.width) ? prev : current
