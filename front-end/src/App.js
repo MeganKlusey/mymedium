@@ -24,14 +24,11 @@ function App() {
       fetch(`${apiUrl}/data`)
       .then(res => res.json())
       .then(data => {
-        setData(data.response.results);
-        if (data) {
-          const articlesFavourited = localStorage.getItem('articles-favourited');
-          if (articlesFavourited) {
-            setData(JSON.parse(articlesFavourited));
-          }
-          setDataLoading(false);
-        }
+        const articlesFavourited = localStorage.getItem('articles-favourited');
+        const finalData = articlesFavourited ? [...JSON.parse(articlesFavourited), data.response.results] : data.response.results;
+
+        setData(finalData);
+        setDataLoading(false);
       })
       .catch(err => console.log(err))
     };
@@ -90,8 +87,6 @@ function App() {
   
     return () => clearInterval(interval);
   }, [apiUrl]);
-  
-
 
   return (
     <div className="App">
