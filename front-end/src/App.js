@@ -28,7 +28,7 @@ function App() {
         const articlesFavourited = localStorage.getItem('articles-favourited');
 
         const finalData = articlesFavourited ? results.map(item => {
-          const isFavourited = JSON.parse(articlesFavourited).filter(item => item.id && item.favourited).some(fav => item.id == fav.id);
+          const isFavourited = JSON.parse(articlesFavourited).filter(item => item.id && item.favourited).some(fav => item.id === fav.id);
           return isFavourited ? {...item, favourited: true} : item;
         }): results;
 
@@ -56,7 +56,7 @@ function App() {
         const creatorsFollowed = localStorage.getItem('creators-followed');
 
         const finalCreators = creatorsFollowed ? filteredTags.map(item => {
-          const isFollowed = JSON.parse(creatorsFollowed).filter(item => item.id && item.followed).some(followed => item.id == followed.id);
+          const isFollowed = JSON.parse(creatorsFollowed).filter(item => item.id && item.followed).some(followed => item.id === followed.id);
           return isFollowed ? {...item, followed: true} : item;
         }): filteredTags;
 
