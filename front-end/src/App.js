@@ -26,7 +26,11 @@ function App() {
       .then(data => {
         const results = data.response.results;
         const articlesFavourited = localStorage.getItem('articles-favourited');
-        const finalData = articlesFavourited ? [...JSON.parse(articlesFavourited), results] : results;
+
+        const finalData = articlesFavourited ? results.map(item => {
+          const isFavourited = JSON.parse(articlesFavourited).filter(item => item.id && item.favourited).some(fav => item.id == fav.id);
+          return isFavourited ? {...item, favourited: true} : item;
+        }): results;
 
         setData(finalData);
         setDataLoading(false);
