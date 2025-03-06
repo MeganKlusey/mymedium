@@ -55,7 +55,10 @@ function App() {
         const filteredTags = extractedTags.filter(item => item?.firstName).filter(item => set.has(item.firstName) ? false : set.add(item.firstName));
         const creatorsFollowed = localStorage.getItem('creators-followed');
 
-        const finalCreators = creatorsFollowed ? [...JSON.parse(creatorsFollowed), filteredTags] : filteredTags;
+        const finalCreators = creatorsFollowed ? filteredTags.map(item => {
+          const isFollowed = JSON.parse(creatorsFollowed).filter(item => item.id && item.followed).some(followed => item.id == followed.id);
+          return isFollowed ? {...item, followed: true} : item;
+        }): filteredTags;
 
         setCreators(finalCreators);
         setCreatorsLoading(false);
