@@ -1,9 +1,10 @@
 require('dotenv').config();
 const axios = require('axios'); 
-const express = require('express')
-const app = express()
+const express = require('express');
+const path = require('path');
+const app = express();
 
-app.use(express.static('front-end/src/pages'));
+app.use(express.static(path.join(__dirname, 'build')));
 
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
@@ -54,6 +55,10 @@ app.get('/article/:id/:wildcard', async (req, res) => {
     console.error('Error fetching data:', error.message);
     res.status(500).json({ error: 'Failed to fetch data' });
   }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 const port = 8000;
