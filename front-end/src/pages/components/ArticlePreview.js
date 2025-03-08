@@ -21,7 +21,7 @@ function ArticlePreview(props) {
           <div>
             {props.firstName && 
               <p className={`uppercase text-md truncate
-                ${!props.topStory && 'hidden xs:block'}`}>Written by <span className="font-bold">{props.firstName}&nbsp;{props.lastName}{props.lastName}{props.lastName}</span>
+                ${!props.topStory && 'hidden xs:block'}`}>Written by <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
               </p>
             }
             <NavLink to={`/${props.id}`}>
