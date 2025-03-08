@@ -17,12 +17,11 @@ function ArticlePreview(props) {
       : 'flex-row-reverse md:flex-row h-full justify-between'}
       ${props.favourited ? 'flex-row-reverse md:flex-row-reverse w-full border-b pb-4' : props.topStory ? 'border-0' : 'border-b pb-4 md:border-0 md:pb-0'}`}>
         <div className={`article-text flex flex-col 
-        ${props.topStory ? 'w-full' : 'w-4/5 justify-between'} ${props.favourited && 'w-full'}`}>
+        ${props.topStory ? 'w-full' : 'w-[calc(66.66%_-_0.5rem)] justify-between'} ${props.favourited && 'w-full'}`}>
           <div>
             {props.firstName && 
-              <p className={`uppercase text-md sm:line-clamp-1 
-                ${!props.topStory && 'hidden xs:block'}`}>Written by&nbsp; 
-                <span className="font-bold">{props.firstName}&nbsp;{props.lastName}</span>
+              <p className={`uppercase text-md truncate
+                ${!props.topStory && 'hidden xs:block'}`}>Written by <span className="font-bold">{props.firstName}&nbsp;{props.lastName}{props.lastName}{props.lastName}</span>
               </p>
             }
             <NavLink to={`/${props.id}`}>
