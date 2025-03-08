@@ -17,7 +17,7 @@ function ArticlePreview(props) {
       : 'flex-row-reverse md:flex-row h-full justify-between'}
       ${props.favourited ? 'flex-row-reverse md:flex-row-reverse w-full border-b pb-4' : props.topStory ? 'border-0' : 'border-b pb-4 md:border-0 md:pb-0'}`}>
         <div className={`article-text flex flex-col 
-        ${props.topStory ? 'w-full' : 'w-[calc(66.66%_-_0.5rem)] justify-between'} ${props.favourited && 'w-full'}`}>
+        ${props.topStory ? 'w-full' : 'w-2/3 justify-between'} ${props.favourited && 'w-full'}`}>
           <div>
             {props.firstName && 
               <p className={`uppercase text-md truncate
@@ -45,7 +45,7 @@ function ArticlePreview(props) {
           }
         </div>
         <div className={`hover:opacity-80 duration-200 ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
-          'aspect-square lg:aspect-none w-1/3 h-auto' } ${props.favourited && 'w-40'}`}>
+          'aspect-square w-[calc(33.33%_-_0.5rem)] h-auto' } ${props.favourited && 'w-40'}`}>
           <NavLink to={`/${props.id}`}>
             <img className="object-cover w-full h-full" src={props.thumbnail} alt="" />
           </NavLink>
