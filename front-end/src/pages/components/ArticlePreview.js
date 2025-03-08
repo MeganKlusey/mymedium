@@ -45,7 +45,7 @@ function ArticlePreview(props) {
           }
         </div>
         <div className={`hover:opacity-80 duration-200 ${props.topStory ? 'w-full h-60 xs:h-80 md:h-full md:max-h-[45vh] aspect-auto' : 
-          'aspect-square w-[calc(33.33%_-_0.5rem)] h-auto' } ${props.favourited && 'w-40'}`}>
+          'aspect-square h-auto' } ${props.favourited ? 'w-44' : 'w-[calc(33.33%_-_0.5rem)]'}`}>
           <NavLink to={`/${props.id}`}>
             <img className="object-cover w-full h-full" src={props.thumbnail} alt="" />
           </NavLink>
