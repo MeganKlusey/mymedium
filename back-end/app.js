@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'build')));
-
+ 
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 
