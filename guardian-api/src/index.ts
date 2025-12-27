@@ -21,21 +21,32 @@ export default {
 		} else if (url.pathname === '/topics') {
 			target = 'https://content.guardianapis.com/sections';
 		} else if (url.pathname.startsWith('/article/')) {
-			const parts = url.pathname.split('/');
-			target = `https://content.guardianapis.com/${parts[2]}/${parts[3]}?show-fields=thumbnail,body&show-tags=contributor&show-elements=image`;
+			const raw = request.url;
+			const marker = '/article/';
+			const after = raw.slice(raw.indexOf(marker) + marker.length);
+			const firstSlash = after.indexOf('/');
+
+			const id = after.slice(0, firstSlash);
+			const wildcard = decodeURIComponent(after.slice(firstSlash + 1));
+
+			target =
+				`https://content.guardianapis.com/${id}/${wildcard}` + `?show-fields=thumbnail,body&show-tags=contributor&show-elements=image`;
 		}
 
 		if (!target) {
 			return new Response('Not found', { status: 404 });
 		}
 
-		const response = await fetch(`${target}&api-key=${env.API_KEY}`);
+		const upstream = new URL(target);
+		upstream.searchParams.set('api-key', env.API_KEY);
+		const response = await fetch(upstream.toString());
+
+		const headers = new Headers(response.headers);
+		headers.set('Access-Control-Allow-Origin', '*');
 
 		return new Response(response.body, {
-			headers: {
-				'Access-Control-Allow-Origin': '*',
-				'Content-Type': 'application/json',
-			},
+			status: response.status,
+			headers,
 		});
 	},
 };
